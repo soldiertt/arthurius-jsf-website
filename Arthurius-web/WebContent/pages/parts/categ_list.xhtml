@@ -1,0 +1,19 @@
+<h:form id="categListForm" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+	<ul >
+	<c:forEach var="category" items="#{navigationBean.categories}" >
+		<li>
+			<h:commandLink value="#{category.title}" action="#{navigationBean.actionBrowseCateg}" rendered="#{navigationBean.language=='fr'}">
+				<f:param name="type" value="#{category.type}" />
+			</h:commandLink>
+			<h:commandLink value="#{category.titleNl}" action="#{navigationBean.actionBrowseCateg}" rendered="#{navigationBean.language=='nl'}">
+				<f:param name="type" value="#{category.type}" />
+			</h:commandLink>
+			<h:commandLink value="#{category.titleEn}" action="#{navigationBean.actionBrowseCateg}" rendered="#{navigationBean.language=='en'}">
+				<f:param name="type" value="#{category.type}" />
+			</h:commandLink>
+		</li>
+	</c:forEach>
+	</ul>
+</h:form>

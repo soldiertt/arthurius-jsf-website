@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:x="http://java.sun.com/jstl/xml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:fn="http://java.sun.com/jstl/functions"
+      xmlns:rich="http://richfaces.org/rich">
+
+<ui:composition template="/pages/template/template.xhtml">
+  <ui:define name="page_title"><h:outputText value="#{msgs['title.website']}" /> - #{navigationBean.mainTitle}</ui:define>
+  <ui:define name="middletop_area">
+  	<ui:include src="/pages/parts/main_title.xhtml" />
+  </ui:define>
+  <ui:define name="middledown_area">
+  	<rich:panel rendered="#{empty userInfoBean.activeUser}" id="signinPanel" styleClass="userPanel">
+	  	<h:form id="userSignForm">
+	  	<h:panelGrid columns="2" columnClasses="userlabels,userinputs" styleClass="userform_table">
+	  		<h:outputLabel for="userName" value="#{msgs['user.username_req']}" />
+	  		<h:inputText value="#{userInfoBean.signinUserName}" required="true" id="userName" size="40" maxlength="30" />
+	  		<label />
+	  		<h:message id="error_username" for="userName" styleClass="errormessage" />
+	  		<h:outputLabel for="password" value="#{msgs['user.password_']}" />
+	  		<h:inputSecret value="#{userInfoBean.signinPassword}" required="true" id="password" size="40" maxlength="30" />
+	  		<label />
+	  		<h:message id="error_password" for="password" styleClass="errormessage" />
+	  		<label />
+	  		<h:messages id="error_messages" styleClass="errormessage" globalOnly="true" layout="table" />
+	  		<h:inputHidden id="requestedUrl" value="#{userInfoBean.requestedUrl}" />
+	  	</h:panelGrid>
+	  	<div id="submituser"><h:commandButton action="#{userInfoBean.actionSignIn}" value="#{msgs['page.sign_in.submit']}" /></div>
+	  	</h:form>
+	  	<div id="legend"><h:outputText value="#{msgs['user.requiredfields']}" /></div>
+	  	<p>
+	  	<span class="confirmmessage">
+	    	<h:link id="linkregister" outcome="/pages/userreg_register" value="#{msgs['page.sign_in.register']}" />
+	    </span>
+	    </p>
+	</rich:panel>
+	<rich:panel rendered="#{!empty userInfoBean.activeUser}" id="signinPanelNa" styleClass="userPanel">
+		<p><h:outputText value="#{msgs['user.alreadyloggedin']}" styleClass="confirmmessage" /></p>
+	</rich:panel>
+  </ui:define>
+</ui:composition>
+</html>

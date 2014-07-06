@@ -1,0 +1,39 @@
+/******************************************************
+****************** ROUNDED BORDERS ********************
+*******************************************************/
+
+/*********** CORNERS **************/
+b.rdborder {
+	display:block;
+	background-color:#ffffff;
+}
+/******* BORDER LINE BACKGROUND *******/
+b.rdborder b{
+	display:block;
+	height: 1px;
+	overflow: hidden;
+	background-color:#ffffff;
+}
+b.rdborder b.r4{
+	margin: 0 1px;
+	height: 2px;
+}
+b.r1{margin: 0 5px}
+b.r2{margin: 0 3px}
+b.r3{margin: 0 2px}
+
+.rounded_border  b.rdborder b {
+	display:block;
+	overflow: hidden;
+	clear:both;
+}
+.rounded_external b.rdborder {
+	display:block;
+	background-color:#370000;
+}
+.rounded_category_title b.rdborder {
+	background-color:#ffffff;
+}
+.rounded_category b.rdborder b {
+	background-color:#ffffff;
+}

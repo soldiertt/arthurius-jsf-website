@@ -1,0 +1,108 @@
+@import url(rounded.css);
+@import url(header.css);
+@import url(menu.css);
+@import url(boxlayout.css);
+@import url(maincontent.css);
+@import url(footer.css);
+/******************************************************
+**************** CORE CSS STYLES **********************
+*******************************************************/
+body {
+	margin:0px;
+	background-color:#370000;
+	text-align:center;
+}
+table {
+	border-collapse:collapse;
+	margin:0px;
+	border:0px;
+	width:100%;
+}
+table td{
+	padding:0px;
+}
+a {
+	color:#ffffff;
+	text-decoration:none;
+}
+a:visited {
+	color:#ffffff;
+}
+.fontwhite {
+	color:#ffffff;
+}
+.fontgrey {
+	color:#333333;
+}
+/******************************************************
+******************** BOX STYLES ***********************
+*******************************************************/
+.box_title {
+	position:absolute;
+	top:7px;
+	left:5px;
+	z-index:1;
+	font-family:verdana;
+	font-weight:bold;
+	font-size:12px;
+}
+.box_title img {
+	float:left;
+	padding-left:0px;
+}
+.box_listitem {
+	color:#ffffff;
+	font-family:verdana;
+	font-weight:bold;
+	font-size:11px;
+	text-align:left;
+}
+.item_category ul li {
+	line-height:20px;
+}
+.box_listitem ul {
+	padding-left:7px;
+	list-style-image:url('../images/bg_list.gif');
+	list-style-position:inside;
+}
+.boxtitle_sep {
+	height:1px;
+	background-color:#ffffff;
+}
+.box_sep {
+	height:5px;
+}
+/******************************************************
+****************** MAIN DIV STYLES ********************
+*******************************************************/
+#content {
+	position:relative;
+	width: 1000px;
+	margin:auto;
+	text-align: left
+}
+#left {
+	position:relative;
+	float:left;
+	width:230px;
+}
+#tableleft {
+	position:relative;
+	background-color:#ffffff;
+	width:230px;
+}
+#right {
+	position:relative;
+	float:left;
+	width:200px;
+	margin-left:5px;
+}
+#tableright {
+	position:relative;
+	background-color:#ffffff;
+	width:200px;
+}
+.userPanel {
+	background-color:#4b1917;
+	border:1px solid white;
+}

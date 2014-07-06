@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:x="http://java.sun.com/jstl/xml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:fn="http://java.sun.com/jstl/functions">
+
+<ui:composition template="template/template.xhtml">
+  <ui:define name="page_title">Arthurius.be - #{navigationBean.mainTitle}</ui:define>
+  <ui:define name="extra_header">
+  	<link rel="stylesheet" type="text/css" href="../css/local_shopcart.css" /> 
+  </ui:define>
+  <ui:define name="middletop_area">
+  	<ui:include src="parts/main_title_shopcart.xhtml" />
+  </ui:define>
+  <ui:define name="middledown_area">
+  	<table id="shopcarttable">
+	<tr>
+		<td align="center" id="shopcartcell">
+			<div class="rounded_border rounded_external"> 
+				<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+			</div>
+		  	<h:form id="shopcartForm">
+		  	<h:dataTable id="shoppingcart" styleClass="shoppingcart_table" columnClasses="*colName,colMark,colSteel,colHandle,colPrice*" 
+		  		value="#{userInfoBean.shoppingCart}" var="orderline" rendered="#{!empty userInfoBean.shoppingCart}">
+		  		<h:column>
+		  			<f:facet name="header"><h:outputText value="#{msgs['shopcart.article']}" /></f:facet>
+		  			<h:commandLink action="#{navigationBean.actionBrowseProduct}" value="#{orderline.product.name}">
+		  				<f:param name="objid" value="#{orderline.product.id}" />
+		  			</h:commandLink>
+		  		</h:column>
+				<h:column>
+					<f:facet name="header"><h:outputText value="#{msgs['shopcart.quantity']}" /></f:facet>
+		  			#{orderline.quantity}
+		  			<h:commandLink action="#{userInfoRequestBean.actionPlusOneProduct}">
+		  				<img src="../images/bullet_add.png" alt="more" border="0" />
+		  				<f:param name="objid" value="#{orderline.product.id}" />
+		  			</h:commandLink>
+		  			<h:commandLink action="#{userInfoRequestBean.actionMinusOneProduct}" rendered="#{orderline.quantity > 1}">
+		  				<img src="../images/bullet_minus.png" alt="less" border="0" />
+		  				<f:param name="objid" value="#{orderline.product.id}" />
+		  			</h:commandLink>
+				</h:column> 
+				<h:column>
+					<f:facet name="header"><h:outputText value="#{msgs['shopcart.unitprice']}" /></f:facet>
+		  			<h:outputText value="#{orderline.product.price}">
+		  				<f:convertNumber currencySymbol="&#8364;" type="currency" groupingUsed="#{false}" />
+		  			</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header"><h:outputText value="#{msgs['shopcart.totalprice']}" /></f:facet>
+		  			<h:outputText value="#{orderline.quantity * orderline.product.price}">
+		  				<f:convertNumber currencySymbol="&#8364;" type="currency" groupingUsed="#{false}" />
+		  			</h:outputText>
+				</h:column>
+		  		<h:column>
+		  			<h:commandLink action="#{userInfoRequestBean.actionRemoveProduct}">
+		  				<img src="../images/trash.gif" alt="remove" border="0" />
+		  				<f:param name="objid" value="#{orderline.product.id}" />
+		  			</h:commandLink>
+				</h:column>
+		  	</h:dataTable>
+		  	<h:panelGrid columnClasses="totalcart" columns="1">
+		  		<h:panelGroup>
+			  		<h:outputText value="#{msgs['shopcart.total_']}" />&#160;
+			  		<h:outputText value="#{userInfoRequestBean.shoppingCartTotal}">
+			  			<f:convertNumber currencySymbol="&#8364;" type="currency" groupingUsed="#{false}" />
+			  		</h:outputText>
+		  		</h:panelGroup>
+		  	</h:panelGrid>
+		  	</h:form>
+		  	<form id="paypalForm" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" >
+		  		<input type="hidden" name="cmd" value="_cart" />
+		  		<input type="hidden" name="upload" value="1" />
+		  		<input type="hidden" name="business" value="soldi7_1256933426_biz@hotmail.com" />
+		  		<input type="hidden" name="lc" value="FR" />
+		  		<input type="hidden" name="custom" value="#{userInfoBean.sessionId}" />
+		  		<input type="hidden" name="currency_code" value="EUR" />
+		  		<input type="hidden" name="return"  value="http://213.214.49.70/Arthurius-web/pages/homepage.jsf" />
+				<input type="hidden" name="cancel_return"  value="http://213.214.49.70/Arthurius-web/pages/homepage.jsf" />
+				<input type="hidden" name="notify_url"  value="http://213.214.49.70/Arthurius-web/pages/shopcart_notify.jsf" />
+			   	<ui:repeat value="#{userInfoBean.shoppingCart}" var="orderline">
+			   		<input type="hidden" name="item_name_#{orderline.index}" value="#{orderline.product.name}" />
+				   	<input type="hidden" name="amount_#{orderline.index}" value="#{orderline.product.price}" />
+				   	<input type="hidden" name="quantity_#{orderline.index}" value="#{orderline.quantity}" />
+			   	</ui:repeat>
+			   	<h:commandButton value="#{msgs['shopcart.paypalpayment']}" />
+			</form>
+		  	<div class="rounded_border rounded_external"> 
+				<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+			</div>
+		</td>
+	</tr>
+	</table>
+  </ui:define>
+</ui:composition>
+    
+</html>

@@ -1,0 +1,30 @@
+<h:form id="footerUserMgmtForm" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<div id="footer">
+	<div class="rounded_border rounded_external" id="footertop"> 
+		<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+	</div>
+	<div id="footeritems">
+		<ui:insert name="footer_items">
+		<span>&#160; &#160; &#160; </span>
+		<span><h:link id="linksearch_footer" outcome="/pages/search" value="#{msgs['link.search']}" /></span>
+		<span class="f_separator"><h:graphicImage value="/images/m_sep.gif" alt="separator" /></span>
+		<span>
+			<h:link id="linkregister_footer" outcome="/pages/userreg_register" value="#{msgs['link.register']}" rendered="#{empty userInfoBean.activeUser}" />
+			<h:link id="linkprofile_footer" outcome="/pages/customer/user_myprofile" value="#{msgs['link.myprofile']}" rendered="#{!empty userInfoBean.activeUser}" />
+		</span>
+		<span class="f_separator"><h:graphicImage value="/images/m_sep.gif" alt="separator" /></span>
+		<span>
+			<h:link id="linksignin_footer" outcome="/pages/user_signin" value="#{msgs['link.signin']}" rendered="#{empty userInfoBean.activeUser}" />
+			<h:commandLink id="linksignout" action="#{userInfoBean.actionSignOut}" value="#{msgs['link.signout']}" rendered="#{!empty userInfoBean.activeUser}" />
+		</span>
+		<h:graphicImage value="/images/p1.gif" alt="payments" />
+		</ui:insert>
+	</div>
+	<div class="rounded_border rounded_external" id="footerbottom"> 
+		<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+	</div>
+</div>
+</h:form>

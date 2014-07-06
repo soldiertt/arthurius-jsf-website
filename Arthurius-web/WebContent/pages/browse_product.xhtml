@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:x="http://java.sun.com/jstl/xml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:fn="http://java.sun.com/jstl/functions">
+
+<ui:composition template="/pages/template/template.xhtml">
+  <ui:define name="page_title"><h:outputText value="#{msgs['title.website']}" /></ui:define>
+  <ui:define name="extra_header">
+  	<script type="text/javascript" src="${request.contextPath}/js/fullscreen.js"></script>
+  	<link rel="stylesheet" type="text/css" href="${request.contextPath}/css/local_product.css" />
+  </ui:define>
+  <ui:define name="middletop_area">
+  	<ui:include src="/pages/parts/main_title.xhtml" />
+  </ui:define>
+  <ui:define name="middledown_area">
+  	<table id="mainproducttable">
+	<tr>
+		<td align="center">
+			<div class="rounded_border rounded_external"> 
+				<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+			</div>
+		  	<h:form id="browseproductform" styleClass="productform">
+		  	<div id="crumbtrail">
+			  	<f:verbatim rendered="#{!empty navigationBean.activeCategory}">&#62; </f:verbatim>
+			  	<h:commandLink action="#{navigationBean.actionBrowseCateg}" value="#{navigationBean.activeCategory.title}" rendered="#{!empty navigationBean.activeCategory}">
+			  		<f:param name="subtype" value="#{navigationBean.activeCategory.type}" />
+			  	</h:commandLink>
+			  	<f:verbatim rendered="#{!empty navigationBean.activeSubCategory}">&#160;&#62; </f:verbatim>
+			  	<h:commandLink action="#{navigationBean.actionBrowseCateg}" value="#{navigationBean.activeSubCategory.title}" rendered="#{!empty navigationBean.activeSubCategory}">
+			  		<f:param name="subtype" value="#{navigationBean.activeSubCategory.type}" />
+			  	</h:commandLink>
+		  	</div>
+		  	<h:panelGrid columns="1" styleClass="productimage_table">
+		  		<h:outputText value="#{navigationBean.browseProduct.name}" styleClass="product_name" />
+		  		<h:commandLink onclick="display_fullscreen('../images/products/#{navigationBean.browseProduct.type}/#{navigationBean.browseProduct.picture}');" disabled="#{navigationBean.productImageIsFullSize}">
+		  			<h:graphicImage value="/images/products/#{navigationBean.browseProduct.type}/#{navigationBean.browseProduct.picture}" width="470px" alt="knife" id="productImage" styleClass="product_image" />
+		  		</h:commandLink>
+		  		<h:panelGrid columns="2">
+		  			<h:panelGroup>
+		  				<h:outputText value="#{msgs['product.price_']}" styleClass="product_price" />&#160;
+			  			<h:outputText value="#{navigationBean.browseProduct.price}" styleClass="product_price">
+			  				<f:convertNumber currencySymbol="&#8364;" type="currency" groupingUsed="#{false}" />
+			  			</h:outputText>
+		  			</h:panelGroup>
+		  			<h:panelGroup>
+		  				<h:commandLink onclick="display_fullscreen('../images/products/#{navigationBean.browseProduct.type}/#{navigationBean.browseProduct.picture}');" id="zoomlink2">
+							<h:graphicImage value="/images/zoom.png" alt="zoom" title="Zoom" />
+						</h:commandLink>
+			  			<h:commandLink action="#{userInfoRequestBean.actionAddToCart}">
+							<h:graphicImage value="/images/addtocart2.png" alt="addtocart" title="#{msgs['addtobasket']}" />
+							<f:param name="objid" value="#{navigationBean.browseProduct.id}" />
+						</h:commandLink>
+					</h:panelGroup>
+				</h:panelGrid>
+		  	</h:panelGrid>
+		  	<h:panelGrid columns="4" columnClasses="productlabels,productlabels,productlabels,productlabels" styleClass="browseproduct_table"> 
+		  		<h:outputText value="#{msgs['product.mark']}" styleClass="product_label" />
+		  		<h:outputText value="#{msgs['product.steel']}"  styleClass="product_label" />
+		  		<h:outputText value="#{msgs['product.handle']}"  styleClass="product_label" />
+		  		<h:outputText value="#{msgs['product.size']}"  styleClass="product_label" />
+		  		<h:outputText value="#{navigationBean.browseProduct.mark}" />
+		  		<h:outputText value="#{navigationBean.browseProduct.steel}" />
+		  		<h:outputText value="#{navigationBean.browseProduct.handle}"   />
+		  		<h:outputText value="#{navigationBean.browseProduct.size}" />
+	  		</h:panelGrid>
+	  		<p />
+		  	<h:panelGrid columns="1" columnClasses="productlabels">
+		  		<h:outputText value="#{navigationBean.browseProduct.description}" />
+		  	</h:panelGrid>
+		  	</h:form>
+			<div class="rounded_border rounded_external"> 
+				<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+			</div>
+		</td>
+	</tr>
+	</table>
+</ui:define>
+</ui:composition>
+    
+</html>

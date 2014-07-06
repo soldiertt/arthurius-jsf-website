@@ -1,0 +1,16 @@
+<h:form id="userMgmtForm" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:outputText value="#{userInfoBean.activeUser.firstName} #{userInfoBean.activeUser.lastName}" rendered="#{!empty userInfoBean.activeUser}" styleClass="displayUser" />      
+<ul>
+	<c:if test="#{empty userInfoBean.activeUser}">
+	<li><h:link id="linksignin" outcome="/pages/user_signin" value="#{msgs['link.signin']}" /></li>
+	<li><h:link id="linkregister" outcome="/pages/userreg_register" value="#{msgs['link.register']}" /></li>
+	</c:if>
+	<c:if test="#{!empty userInfoBean.activeUser}">
+	<li><h:commandLink id="linksignout" action="#{userInfoBean.actionSignOut}" value="#{msgs['link.signout']}" /></li>
+	</c:if>
+	<li><h:link id="linkprofile" outcome="/pages/customer/user_myprofile" value="#{msgs['link.myprofile']}" /></li>
+	<li><h:link id="linkbasket" outcome="/pages/customer/shopcart" value="#{msgs['link.mybasket']}" /></li>
+</ul>
+</h:form>

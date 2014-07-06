@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:x="http://java.sun.com/jstl/xml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:fn="http://java.sun.com/jstl/functions">
+
+<ui:composition template="/pages/template/template_wide.xhtml">
+  <ui:define name="page_title"><h:outputText value="#{msgs['title.website']}" /> - #{navigationBean.mainTitle}</ui:define>
+  <ui:define name="extra_header">
+  	<link rel="stylesheet" type="text/css" href="../css/local_about.css" /> 
+  </ui:define>
+  <ui:define name="middletop_area">
+  	<ui:include src="/pages/parts/main_title_wide.xhtml" />
+  </ui:define>
+  <ui:define name="middledown_area">
+  
+	<table class="abouttable">
+    <tr>
+    	<td><span class="abouttitle"><h:outputText value="#{msgs['page.about.presentation']}" /></span></td>
+      	<td rowspan="9" class="aboutright">
+      		<span class="abouttitle"><h:outputText value="#{msgs['page.about.procedure']}" /></span>
+        	<ol>
+          		<li>Choisissez votre article dans le catalogue &quot;coutellerie&quot;.
+          		</li>
+          		<li>Notez la r&#233;f&#233;rence mentionn&#233;e en dessous de &quot;Ref.&quot;
+          		</li>
+          		<li>Allez dans la section commande, remplissez le formulaire et recopiez la r&#233;f&#233;rence
+            			dans la case pr&#233;vue ainsi que la quantit&#233; d&#233;sir&#233;e.
+          		</li>
+          		<li>Envoyez le formulaire ,nous vous r&#233;pondrons par e-mail<br />
+              			dans les 24 h, en vous confirmant la somme &#224; payer et les modalit&#233;s.
+          		</li>
+          		<li>Vous avez la possibilit&#233; de payer par Paypal, par virement<br />
+              			ou par virement international et par ch&#232;que pour la France.<br />
+            			Vous avez 3 jours ouvrables pour effectuer le paiement , apr&#232;s ce d&#233;lais, votre commande sera annul&#233;e.
+          		</li>
+          		<li>Nous vous confirmons la r&#233;ception du paiement et l'envoi<br /> 
+              			du colis par la poste .Envoi s&#233;curis&#233; autour de 6,00 &euro;.
+          		</li>
+          		<li>Vous revisitez le site<a href="/catalogue.php"> www.eurolames.fr</a> 
+            			car cela vous a plu et vous vous laisseriez bien tenter par un nouvel article<br />
+              			Contrairement &#224; la concurrence sur Internet qui proposent des milliers d'articles en 
+              			ligne qui vont seront livr&#233;s....entre 30 et 60 jours si tout va bien , nous avons notre
+              			propre stock et votre commande peut vous &ecirc;tre livr&#233;e sous 3 jours
+              			ouvrables d&#232;s r&#233;ception du paiement.<br />
+						Si un mod&#232;le que vous avez vu ailleurs vous int&#233;resse, je vous le commande
+						au meilleur prix, livr&#233; entre 15 et 30 jours maximum, sous r&#233;serve de
+						disponibilit&#233; des fournisseurs.
+          		</li>
+        	</ol>
+        </td>
+	</tr>
+    <tr>
+    	<td><h:graphicImage value="/images/foire.jpg" width="428" height="322" /></td>
+    </tr>
+    <tr>
+    	<td class="aboutseparator">&#160;</td>
+    </tr>
+    <tr>
+      	<td>Pr&#233;sent d&#233;j&#224; sur les foires, march&#233;s et bourses
+      			militaria, il est maintenant possible de vous recevoir au magasin
+      	</td>
+    </tr>
+    <tr>
+    	<td class="aboutseparator">&#160;</td>
+    </tr>
+    <tr>
+    	<td>
+   			<object id="monFlash" type="application/x-shockwave-flash" data="../images/player_flv.swf" width="320" height="240">
+   				<param name="movie" value="../images/player_flv.swf" />
+  				<param name="FlashVars" value="flv=http://www.coutellerie-arthurius.com/video/magasin.flv&amp;width=320&amp;height=240" />
+  			</object>
+   		</td>
+    </tr>
+    <tr>
+    	<td class="aboutseparator">&#160;</td>
+    </tr>
+    <tr>
+    	<td>Le magasin  est ouvert 7J/7 sur Rendez-vous !<br />
+          		Vous pourrez y faire des choix judicieux, et apporter vos couteaux &#224; aiguiser
+        </td>
+    </tr>
+    <tr>
+    	<td class="aboutseparator">&#160;</td>
+    </tr>
+    <tr>
+      	<td><h:graphicImage value="/images/forge2.jpg" width="433" height="325" /></td>
+    </tr>
+  </table>
+  	
+  </ui:define>
+</ui:composition>
+    
+</html>

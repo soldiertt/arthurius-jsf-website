@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:x="http://java.sun.com/jstl/xml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:fn="http://java.sun.com/jstl/functions">
+
+<ui:composition template="/pages/template/template.xhtml">
+  <ui:define name="page_title"><h:outputText value="#{msgs['title.website']}" /> - #{navigationBean.mainTitle}</ui:define>
+  <ui:define name="extra_header">
+  	<link rel="stylesheet" type="text/css" href="${request.contextPath}/css/local_search.css" /> 
+  </ui:define>
+  <ui:define name="middletop_area">
+  	<ui:include src="/pages/parts/main_title.xhtml" />
+  </ui:define>
+  <ui:define name="middledown_area">
+  	<h:form id="searchForm">
+  	<h:panelGrid columns="2" columnClasses="userlabels,userinputs" styleClass="searchform_table">
+  		<h:outputLabel value="#{msgs['product.mark_']}" for="mark" />
+  		<h:selectOneMenu value="#{productSearchBean.selectedMark}" id="mark">
+  			<f:selectItems value="#{productSearchBean.allMarks}" />
+  		</h:selectOneMenu>
+  		<h:outputLabel value="#{msgs['product.steel_']}" for="steel" />
+  		<h:selectOneMenu value="#{productSearchBean.selectedSteel}" id="steel">
+  			<f:selectItems value="#{productSearchBean.allSteels}" />
+  		</h:selectOneMenu>
+  		<h:outputLabel value="#{msgs['product.handle_']}" for="handle" />
+  		<h:selectOneMenu value="#{productSearchBean.selectedHandle}" id="handle">
+  			<f:selectItems value="#{productSearchBean.allHandles}" />
+  		</h:selectOneMenu>
+  		<h:outputLabel value="#{msgs['product.price_']}" for="priceStart" />
+  		<h:panelGroup>
+  			<h:outputText value="#{msgs['page.search.from']}" /> &#160; &#160; <h:inputText value="#{productSearchBean.startPrice}" id="priceStart" size="6" />&#8364; &#160; &#160; 
+  			<h:outputText value="#{msgs['page.search.to']}" /> &#160; &#160; <h:inputText value="#{productSearchBean.endPrice}" id="priceEnd" size="6" />&#8364;
+  		</h:panelGroup>
+  	</h:panelGrid>
+  	<div id="submitsearch">
+  		<h:commandButton action="#{productSearchBean.actionSearch}" value="#{msgs['page.search.submit']}" />&#160;
+  		<h:commandButton action="#{productSearchBean.actionSearchReset}" value="#{msgs['page.search.reset']}" />
+  	</div>
+  	<h:dataTable id="searchresults" styleClass="searchresults" columnClasses="colName,colMark,colSteel,colHandle,colPrice" 
+  		value="#{productSearchBean.searchResults}" var="product" rendered="#{!empty productSearchBean.searchResults}">
+  		<h:column>
+  			<f:facet name="header"><h:outputText value="#{msgs['shopcart.article']}" /></f:facet>
+  			<h:commandLink action="#{navigationBean.actionBrowseProduct}" value="#{product.name}">
+  				<f:param name="objid" value="#{product.id}" />
+  			</h:commandLink>
+  		</h:column>
+		<h:column>
+			<f:facet name="header"><h:outputText value="#{msgs['product.mark']}" /></f:facet>
+  			#{product.mark}
+		</h:column> 
+		<h:column>
+			<f:facet name="header"><h:outputText value="#{msgs['product.steel']}" /></f:facet>
+  			#{product.steel}
+		</h:column>
+		<h:column>
+			<f:facet name="header"><h:outputText value="#{msgs['product.handle']}" /></f:facet>
+  			#{product.handle}
+		</h:column>
+		<h:column>
+			<f:facet name="header"><h:outputText value="#{msgs['product.price']}" /></f:facet>
+  			<h:outputText value="#{product.price}" >
+  				<f:convertNumber currencySymbol="&#8364;" type="currency" groupingUsed="#{false}" />
+  			</h:outputText>
+		</h:column>
+  	</h:dataTable>
+  	<h:outputText value="#{productSearchBean.msgInfo}" />
+  	</h:form>
+  </ui:define>
+</ui:composition>
+    
+</html>

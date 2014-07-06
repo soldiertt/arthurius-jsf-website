@@ -1,0 +1,40 @@
+<h:form id="prodActuForm" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:panelGrid id="prodActu" columns="2" columnClasses="shopitem,shopitem">
+	<c:forEach var="product" items="#{navigationBean.firstPageProducts}">
+		<h:panelGroup>
+		<div class="prod_title">#{product.name}</div>
+		<h:commandLink action="#{navigationBean.actionBrowseProduct}">
+			<h:graphicImage value="/images/products/#{product.type}/#{product.picture}" width="150px" alt="knife" />
+			<f:param name="objid" value="#{product.id}" />
+		</h:commandLink>
+		<table class="prod_details">
+			<tr><td colspan="2">#{product.description}</td></tr>
+			<tr><td><h:outputText value="#{msgs['product.handle_']}" /></td><td>#{product.handle}</td></tr>
+			<tr><td><h:outputText value="#{msgs['product.steel_']}" /></td><td>#{product.steel}</td></tr>
+			<tr>
+				<td><h:outputText value="#{msgs['product.price_']}" /></td>
+				<td class="prod_price">
+					<h:outputText value="#{product.price}">
+							<f:convertNumber currencySymbol="&#8364;" type="currency" groupingUsed="#{false}" />
+					</h:outputText>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<h:commandLink action="#{userInfoRequestBean.actionAddToCart}">
+						<h:graphicImage value="/images/addtocart.png" alt="addtocart" title="#{msgs['addtobasket']}" />
+						<f:param name="objid" value="#{product.id}" />
+					</h:commandLink>
+					<h:commandLink action="#{navigationBean.actionBrowseProduct}">
+						<h:graphicImage value="/images/info.png" alt="browse product" title="#{msgs['title.browse_product']}" />
+						<f:param name="objid" value="#{product.id}" />
+					</h:commandLink>
+				</td>
+			</tr>
+		</table>
+		</h:panelGroup>
+	</c:forEach>
+</h:panelGrid>
+</h:form>

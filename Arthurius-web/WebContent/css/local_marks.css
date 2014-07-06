@@ -1,0 +1,31 @@
+#marksForm {
+	background-color:#ffffff;
+}
+#crumbtrail {
+	text-align:left;
+	color:#000000;
+	font-family:verdana;
+	font-size:13px;
+	margin-bottom:20px;
+}
+#crumbtrail a {
+	color:#000000;
+	font-family:verdana;
+	font-size:13px;
+	text-decoration:underline;
+}
+.mark_label {
+	text-align:left;
+}
+.mark_label a, .mark_label a:visited {
+	color:#333333;
+	font-family:verdana;
+	font-size:12px;
+	font-weight:bold;
+}
+.allmarkstable {
+	width:97%;
+}
+.active_mark {
+	font-weight:bold;
+}

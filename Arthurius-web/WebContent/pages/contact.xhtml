@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:x="http://java.sun.com/jstl/xml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:fn="http://java.sun.com/jstl/functions">
+
+<ui:composition template="/pages/template/template.xhtml">
+  <ui:define name="page_title"><h:outputText value="#{msgs['title.website']}" /> - #{navigationBean.mainTitle}</ui:define>
+  <ui:define name="extra_header">
+  	<link rel="stylesheet" type="text/css" href="${request.contextPath}/css/local_contact.css" />
+  	<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAPp1z8gY9TiRhEeGD2wVwvBQZYZtVWzjVvnTe-l36yktWV9LhbRRtOjVmlEkR0NEXIARbsKW9qtNaPw" type="text/javascript"></script>
+  </ui:define>
+  <ui:define name="middletop_area">
+  	<ui:include src="/pages/parts/main_title.xhtml" />
+  </ui:define>
+  <ui:define name="middledown_area">
+  	<table class="contacttable">
+  	<tr>
+  		<td><h:outputText value="#{msgs['page.contact.shopname']}" /></td>
+  		<td></td>
+  	</tr>
+  	<tr>
+  		<td>rue des Haud'oignons, 6</td>
+  		<td>Tel : 0032 479 /367.479</td>
+  	</tr>
+  	<tr>
+  		<td>7950 Huissignies (Chi&#232;vres)</td>
+  		<td>E-mail: <a href="mailto:arthurius.lame@gmail.com">arthurius.lame@gmail.com</a></td>
+  	</tr>
+  	<tr>
+  		<td>BELGIQUE ( &#224; 40 minutes de Lille)</td>
+  		<td>Website : <a href="http://www.arthurius.be">www.arthurius.be</a></td>
+  	</tr>
+  	</table>
+  	<div class="contacttitle"><h:outputText value="#{msgs['page.contact.map']}" /></div>
+  	<script type="text/javascript">
+     //<![CDATA[
+	 var address ="Rue Haud'oignons 6, 7950 Huissignies, Belgium";
+	 var map = null;
+	 var geocoder = null;
+	
+     function load() {
+       geocoder = new GClientGeocoder();
+       if (GBrowserIsCompatible()) {
+         map = new GMap2(document.getElementById("map"));
+         if (geocoder) {
+	         geocoder.getLatLng(
+	           address,
+	           function(point) {
+	             if (!point) {
+	               alert(address + " not found");
+	             } else {
+	               map.setCenter(point, 13);
+	               map.addControl(new GLargeMapControl());
+	               var marker = new GMarker(point);
+	               map.addOverlay(marker);
+	               marker.openInfoWindowHtml(address);
+	             }
+	           }
+	         );
+       	  }
+       }
+     }
+     //]]>
+     </script>
+  	 <div id="map" style="width: 500px; height: 300px"><script>load();</script>map</div>
+  </ui:define>
+</ui:composition>
+    
+</html>

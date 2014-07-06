@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:x="http://java.sun.com/jstl/xml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:fn="http://java.sun.com/jstl/functions">
+
+<ui:composition template="/pages/template/template.xhtml">
+  <ui:define name="page_title"><h:outputText value="#{msgs['title.website']}" /> - #{navigationBean.mainTitle}</ui:define>
+  <ui:define name="extra_header">
+  	<link rel="stylesheet" type="text/css" href="${request.contextPath}/css/local_marks.css" />
+  </ui:define>
+  <ui:define name="middletop_area">
+  	<ui:include src="/pages/parts/main_title.xhtml" />
+  </ui:define>
+  <ui:define name="middledown_area">
+  	<table id="markstable">
+	<tr>
+		<td align="center" id="markscell">
+			<div class="rounded_border rounded_external"> 
+				<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+			</div>
+		  	<h:form id="marksForm">
+		  	<h:panelGrid columnClasses="mark_label,mark_label,mark_label" columns="3" styleClass="allmarkstable">
+		  		<c:forEach items="#{productSearchBean.baseAllMarks}" var="mark">
+					<h:commandLink action="#{navigationBean.actionBrowseMark}" value="#{mark.label}">
+						<f:param name="markname" value="#{mark.value}" />
+					</h:commandLink>
+				</c:forEach>
+		  	</h:panelGrid>
+		  	</h:form>
+		  	<div class="rounded_border rounded_external"> 
+				<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+			</div>
+		</td>
+	</tr>
+	</table>
+  </ui:define>
+</ui:composition>
+    
+</html>

@@ -1,0 +1,64 @@
+.selectbanner {
+	width:150px;
+	height:18px;
+	font-size:10px;
+	color:#660000;
+	border-color:#660000;
+}
+.inputbanner {
+	width:100px;
+	height:13px;
+	font-size:10px;
+	color:#660000;
+	border-color:#660000;
+}
+.cmdbanner {
+	margin-left: 2px;
+	font-size:10px;
+	color:#660000;
+	padding: 1px;
+}
+.cmdbanner_hidden {
+	display:none;
+}
+.headerlabel {
+	color:#ffffff;
+	font-weight:bold;
+	font-family:verdana;
+	font-size:10px;
+}
+.languageFlag {
+	margin-right:2px;
+}
+.separator {
+	height:111px;
+	float:left;
+	line-height:111px;
+	margin-left:10px;
+	margin-right:10px;
+}
+.separator img {
+	margin-top:50px;
+}
+#header {
+	position:relative;
+	height:115px;
+	background:url(../images/back-header.png) repeat-x;
+}
+#logo {
+	height:111px;
+	float:left;
+	margin-top:0px;
+}
+#country {
+	margin-top:55px;
+	float:left;
+}
+#searchbox {
+	margin-top:50px;
+	float:left;
+}
+#manufact {
+	margin-top:50px;
+	float:left;
+}

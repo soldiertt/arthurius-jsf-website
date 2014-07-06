@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title><ui:insert name="page_title"><h:outputText value="#{msgs['title.website']}" /></ui:insert></title>
+<link rel="stylesheet" type="text/css" href="${request.contextPath}/css/stylesheet.css" />
+<ui:insert name="extra_header" />
+</h:head>
+<f:view locale="#{navigationBean.language}">
+<body>
+<div id="content">
+<ui:include src="../parts/header.xhtml" />
+<div id="menu">
+	<div class="rounded_border rounded_external" id="menutop"> 
+		<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+	</div>
+	<ui:insert name="menu_items">
+		<ui:include src="../parts/menu.xhtml" />
+	</ui:insert>
+	<div class="rounded_border rounded_external" id="menubottom"> 
+		<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+	</div>
+</div>
+<div id="main">
+	<div id="left">
+		<div class="rounded_border rounded_external"> 
+			<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+		</div>
+		<table id="tableleft">
+		<tr>
+			<td align="center">
+				<div id="categories">
+				<table width="100%">
+				<tr>
+					<td id="cat_title_up">
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+						</div>
+						&#160;
+					</td>
+				</tr>
+				<tr class="box_title fontwhite">
+					<td><h:graphicImage value="/images/star.gif" alt="star" /><h:outputText value="#{msgs['categories']}" /></td>
+				</tr>
+				<tr>
+					<td id="cat_title_down">
+						&#160;
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+						</div>
+					</td>
+				</tr>
+				<tr><td class="boxtitle_sep"></td></tr>
+				<tr>
+					<td class="box_listitem item_category">
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+						</div>
+						<ui:insert name="cat_list">
+							<ui:include src="../parts/categ_list.xhtml" />
+						</ui:insert>
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+						</div>
+					</td>
+				</tr>
+				</table>
+				</div>
+				<table><tr><td class="box_sep" /></tr></table>
+				<div id="information">
+				<table width="100%">
+				<tr>
+					<td id="info_title_up">
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+						</div>
+						&#160;
+					</td>
+				</tr>
+				<tr class="box_title fontwhite">
+					<td><h:graphicImage value="/images/star.gif" alt="star" /><h:outputText value="#{msgs['information']}" /></td>
+				</tr>
+				<tr>
+					<td id="info_title_down">
+						&#160;
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+						</div>
+					</td>
+				</tr>
+				<tr><td class="boxtitle_sep"></td></tr>
+				<tr>
+					<td class="box_listitem">
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+						</div>
+						<ui:include src="../parts/info_list.xhtml" />
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+						</div>
+					</td>
+				</tr>
+				</table>
+				</div>
+			</td>
+		</tr>
+		</table>
+		<div class="rounded_border rounded_external"> 
+			<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+		</div>
+	</div>
+	<div id="middlecomponant">
+		<div id="topcenter">
+			<ui:insert name="middletop_area">
+			<table>
+			<tr>
+				<td>
+					<div class="rounded_border rounded_external"> 
+						<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+					</div>
+					<div class="picture"><h:graphicImage value="/images/banner_02.jpg" alt="banner" /></div>
+					<div class="rounded_border rounded_external"> 
+						<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+					</div>
+				</td>
+			</tr>
+			</table>
+			</ui:insert>
+		</div>
+		<div id="bottomcenter">
+			<h:message id="siteinfo" for="siteinfo" styleClass="infomessage" />
+			<ui:insert name="middledown_area">
+			<table id="middledown_table">
+			<tr>
+				<td>
+					<div class="rounded_border rounded_external"> 
+						<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+					</div>
+					<ui:include src="../parts/actu_product_list.xhtml" />
+					<div class="rounded_border rounded_external"> 
+						<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+					</div>
+				</td>
+			</tr>
+			</table>
+			</ui:insert>
+		</div>
+	</div>
+	<div id="right">
+		<div class="rounded_border rounded_external"> 
+			<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+		</div>
+		<table id="tableright">
+		<tr>
+			<td align="center">
+				<div id="bestsellers">
+				<table width="100%">
+				<tr>
+					<td id="best_title_up">
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+						</div>
+						&#160;
+					</td>
+				</tr>
+				<tr class="box_title fontwhite">
+					<td><h:graphicImage value="/images/star.gif" alt="star" /><h:outputText value="#{msgs['myaccount']}" /></td>
+				</tr>
+				<tr>
+					<td id="best_title_down">
+						&#160;
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+						</div>
+					</td>
+				</tr>
+				<tr><td class="boxtitle_sep"></td></tr>
+				<tr>
+					<td class="box_listitem">
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+						</div>
+						<ui:include src="../parts/usermgmt_list.xhtml" />
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+						</div>
+					</td>
+				</tr>
+				</table>
+				</div>
+				<table><tr><td class="box_sep" /></tr></table>
+				<div id="specials">
+				<table width="100%">
+				<tr>
+					<td id="special_title_up">
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+						</div>
+						&#160;
+					</td>
+				</tr>
+				<tr class="box_title fontwhite">
+					<td><h:graphicImage value="/images/star.gif" alt="star" /><h:outputText value="#{msgs['mybasket']}" /></td>
+				</tr>
+				<tr>
+					<td id="special_title_down">
+						&#160;
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+						</div>
+					</td>
+				</tr>
+				<tr><td class="boxtitle_sep"></td></tr>
+				<tr>
+					<td class="box_listitem">
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+						</div>
+						<ui:include src="../parts/shopcart_list.xhtml" />
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+						</div>
+					</td>
+				</tr>
+				</table>
+				</div>
+				<table><tr><td class="box_sep" /></tr></table>
+				<div id="whatsnew"> 
+				<table width="100%">
+				<tr>
+					<td id="whatsnew_title_up">
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+						</div>
+						&#160;
+					</td>
+				</tr>
+				<tr class="box_title fontwhite">
+					<td><h:graphicImage value="/images/star.gif" alt="star" /><h:outputText value="#{msgs['servicesarthurius']}" /></td>
+				</tr>
+				<tr>
+					<td id="whatsnew_title_down">
+						&#160;
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+						</div>
+					</td>
+				</tr>
+				<tr><td class="boxtitle_sep"></td></tr>
+				<tr>
+					<td class="box_listitem">
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+						</div>
+						<ul>
+							<li>Aiguisage</li>
+							<li>Gravure</li>
+							<li>Fabrication</li>
+						</ul>
+						<div class="rounded_border"> 
+							<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+						</div>
+					</td>
+				</tr>
+				</table>
+				</div>
+			</td>
+		</tr>
+		</table>
+		<div class="rounded_border rounded_external"> 
+			<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+		</div>
+	</div>
+</div>
+<ui:include src="../parts/footer.xhtml" />
+</div>
+</body>
+</f:view>
+</html>
