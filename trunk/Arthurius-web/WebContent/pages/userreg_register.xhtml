@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:x="http://java.sun.com/jstl/xml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:fn="http://java.sun.com/jstl/functions"
+      xmlns:rich="http://richfaces.org/rich">
+
+<ui:composition template="/pages/template/template.xhtml">
+  <ui:define name="page_title"><h:outputText value="#{msgs['title.website']}" /> - #{navigationBean.mainTitle}</ui:define>
+  <ui:define name="middletop_area">
+  	<ui:include src="/pages/parts/main_title.xhtml" />
+  </ui:define>
+  <ui:define name="middledown_area">
+  	<rich:panel rendered="#{empty userInfoBean.activeUser}" id="registerPanel" styleClass="userPanel">
+  	<h:form id="userRegForm">
+  	<h:panelGrid columns="2" columnClasses="userlabels,userinputs" styleClass="userform_table">
+  		<h:outputLabel value="#{msgs['user.username_req']}" for="userName" />
+  		<h:inputText value="#{userInfoBean.newUser.userName}" validator="#{userInfoValidation.validateUserName}" required="true" id="userName" size="40" maxlength="30">
+  			<f:validateLength minimum="4" />
+  		</h:inputText>
+  		<label />
+  		<h:message for="userName" styleClass="errormessage" />
+  		<h:outputLabel value="#{msgs['user.password_']}" for="password" />
+  		<h:inputSecret value="#{userInfoBean.newUser.password}" required="true" id="password" size="40" maxlength="30">
+  			<f:validateLength minimum="4" />
+  		</h:inputSecret>
+  		<label />
+  		<h:message for="password" styleClass="errormessage" />
+  		<h:outputLabel value="#{msgs['user.confirmation_']}" for="password_confirm" />
+  		<h:inputSecret value="#{userInfoBean.passwordConfirm}" validator="#{userInfoValidation.validatePasswordConfirm}" required="true" id="password_confirm" size="40" maxlength="30">
+  			<f:attribute name="passwordId" value="userRegForm:password" />
+  		</h:inputSecret>
+  		<label />
+  		<h:message for="password_confirm" styleClass="errormessage" />
+  		<h:outputLabel value="#{msgs['user.firstname_']}" for="firstName" />
+  		<h:inputText value="#{userInfoBean.newUser.firstName}" validator="#{userInfoValidation.validateOnlyLetters}" required="true" id="firstName" size="40" maxlength="30">
+  			<f:validateLength minimum="2" />
+  		</h:inputText>
+  		<label />
+  		<h:message for="firstName" styleClass="errormessage" />
+  		<h:outputLabel value="#{msgs['user.lastname_']}" for="lastName" />
+  		<h:inputText value="#{userInfoBean.newUser.lastName}" validator="#{userInfoValidation.validateOnlyLetters}" required="true" id="lastName" size="40" maxlength="30">
+  			<f:validateLength minimum="2" />
+  		</h:inputText>
+  		<label />
+  		<h:message for="lastName" styleClass="errormessage" />
+  		<h:outputLabel value="#{msgs['user.address_']}" for="addrStreet" />
+  		<h:panelGroup>
+  			<table id="formaddress">
+  				<tr><td>
+	  			<h:outputLabel value="#{msgs['user.street_']}" for="addrStreet" />
+	  			<h:inputText value="#{userInfoBean.newUser.addrStreet}" required="true" id="addrStreet" size="40" maxlength="50">
+	  				<f:validateLength minimum="3" />
+	  			</h:inputText>
+	  			<br /><h:message for="addrStreet" styleClass="errormessage" />
+	  			</td></tr>
+	  			<tr><td>
+	  			<h:outputLabel value="#{msgs['user.streetnum_']}" for="addrStreetNum" />
+	  			<h:inputText value="#{userInfoBean.newUser.addrStreetNum}" id="addrStreetNum" size="4" maxlength="5" />
+	  			<h:outputLabel value="#{msgs['user.postbox_']}" for="addrPostBox" />
+	  			<h:inputText value="#{userInfoBean.newUser.addrPostBox}" id="addrPostBox" size="3" maxlength="10" />
+	  			<br /><h:message for="addrStreetNum" styleClass="errormessage" /><h:message for="addrPostBox" styleClass="errormessage" />
+	  			</td></tr>
+	  			<tr><td>
+	  			<h:outputLabel value="#{msgs['user.postcode_']}" for="addrPostCode" />
+	  			<h:inputText value="#{userInfoBean.newUser.addrPostCode}" required="true" id="addrPostCode" size="5" maxlength="6">
+	  				<f:validateLength minimum="4" />
+	  			</h:inputText>
+	  			<br /><h:message for="addrPostCode" styleClass="errormessage" />
+	  			</td></tr>
+	  			<tr><td>
+	  			<h:outputLabel value="#{msgs['user.city_']}" for="addrCity" />
+	  			<h:inputText value="#{userInfoBean.newUser.addrCity}" validator="#{userInfoValidation.validateOnlyLetters}" required="true" id="addrCity" size="25" maxlength="50">
+	  				<f:validateLength minimum="2" />
+	  			</h:inputText>
+	  			<br /><h:message for="addrCity" styleClass="errormessage" />
+	  			</td></tr>
+	  		</table>
+  		</h:panelGroup>
+  		<h:outputLabel value="#{msgs['user.country_']}" for="addrCountry" />
+  		<h:inputText value="#{userInfoBean.newUser.addrCountry}" validator="#{userInfoValidation.validateOnlyLetters}" required="true" id="addrCountry" size="40" maxlength="50">
+  			<f:validateLength minimum="4" />
+  		</h:inputText>
+  		<label />
+  		<h:message for="addrCountry" styleClass="errormessage" />
+  		<h:outputLabel value="#{msgs['user.email_req']}" for="email" />
+  		<h:inputText value="#{userInfoBean.newUser.email}" required="true" id="email" size="40" maxlength="100">
+  			<f:validator validatorId="emailValidator" />
+  		</h:inputText>
+  		<label />
+  		<h:message for="email" styleClass="errormessage" />
+  		<h:outputLabel value="#{msgs['user.confirmation_']}" for="email_confirm" />
+  		<h:inputText value="#{userInfoBean.emailConfirm}" validator="#{userInfoValidation.validateEmailConfirm}" required="true" id="email_confirm" size="40" maxlength="100">
+  			<f:attribute name="emailId" value="userRegForm:email" />
+  		</h:inputText>
+  		<label />
+  		<h:message for="email_confirm" styleClass="errormessage" />
+  		<h:outputLabel value="#{msgs['user.phone_']}" for="phoneNumber" />
+  		<h:inputText value="#{userInfoBean.newUser.phoneNumber}" id="phoneNumber" maxlength="30" />
+  		<label />
+  		<h:message for="phoneNumber" />
+  	</h:panelGrid>
+  	<div id="submituser"><h:commandButton action="#{userInfoBean.actionSubmitUser}" value="Envoyer" /></div>
+  	</h:form>
+  	<div id="legend"><h:outputText value="#{msgs['user.requiredfields']}" /></div>
+  	</rich:panel>
+  	<rich:panel rendered="#{!empty userInfoBean.activeUser}" id="registerPanelNa" styleClass="userPanel">
+		<p><h:outputText value="#{msgs['user.alreadyloggedin']}" styleClass="confirmmessage" /></p>
+	</rich:panel>
+  </ui:define>
+</ui:composition>
+    
+</html>

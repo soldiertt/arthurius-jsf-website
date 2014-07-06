@@ -1,0 +1,266 @@
+#middletop_table {
+	background-color:#ffffff;
+}
+#middledown_table {
+	background-color:#ffffff;
+}
+
+#subcateg_table {
+	position:relative;
+	background-color:#ffffff;
+	width:98%
+}
+#products_table {
+	position:relative;
+	background-color:#ffffff;
+	width:98%
+}
+#maintitletable {
+	background-color:#ffffff;
+}
+#mainproducttable {
+	background-color:#ffffff;
+}
+.productform {
+	padding-left:10px;
+	padding-right:10px;
+}
+.prodvalue_list {
+	color:#990000;
+	font-family:verdana;
+	font-size:12px;
+}
+.prodtitle_list, .prodtitle_list a, .prodtitle_list a:visited {
+	color:#990000;
+	font-family:verdana;
+	font-size:12px;
+	font-weight:bold;
+	text-align:left;
+}
+.prodtitle_list a, .prodtitle_list a:visited {
+	text-decoration:underline;
+}
+.prodlist_table {
+	border-top:1px solid #990000;
+}
+.prodlist_table td {
+	border-top:1px solid #990000;
+	border-bottom:1px solid #990000;
+}
+#maintable {
+	position:relative;
+	background-color:#ffffff;
+	width:98%;
+}
+#maintable_wide {
+	position:relative;
+	background-color:#ffffff;
+	width:99%;
+}
+.subcateg_td {
+	width:33%;
+	height:22px;
+}
+.subcateg_td a {
+	color:#333333;
+}
+.subcateg_td a:visited {
+	color:#333333;
+}
+	 
+/* ACTIVECATEG ROW UP */
+#activecateg_rowup {
+	background-color:#6B0B0F;
+	line-height:10px;
+}
+#activecateg_rowup.rdborder {
+	background-color:#aa6666;
+}
+#activecateg_rowup b.rdborder b{
+	background-color:#6B0B0F;
+}
+/* ACTIVECATEG ROW DOWN */
+#activecateg_rowdown {
+	background-color:#320608;
+	line-height:10px;
+}
+#activecateg_rowdown b.rdborder b{
+	background-color:#320608;
+}
+/* SUBCATEG ROW UP */
+#subcateg_rowup {
+	background-color:#6B0B0F;
+	line-height:10px;
+}
+#subcateg_rowup.rdborder {
+	background-color:#aa6666;
+}
+#subcateg_rowup b.rdborder b{
+	background-color:#6B0B0F;
+}
+/* ACTIVECATEG ROW DOWN */
+#subcateg_rowdown {
+	background-color:#320608;
+	line-height:10px;
+}
+#subcateg_rowdown b.rdborder b{
+	background-color:#320608;
+}
+.picture {
+	line-height:0px;
+}
+/**********************************************
+********** CATEGORY PRODUCTS ******************
+***********************************************/
+.shopitem {
+	padding:5px 10px 5px 10px;
+	vertical-align:top;
+}
+.shopitem img{
+	padding-top:20px;
+}
+.prod_title {
+	font-family:verdana;
+	color:#AB0000;
+	font-size:14px;
+	border-bottom:1px solid #AB0000;
+	padding-bottom:5px;
+	font-weight:bold;
+}
+.prod_price {
+	font-weight:bold;
+}
+.prod_details {
+	width:235px;
+}
+.prod_details td{
+	font-family:arial;
+	font-size:12px;
+	padding:1px 5px 1px 5px;
+}
+.prod_sep {
+	height:20px;
+	background-color:#ffffff;
+}
+/**********************************************
+************** MAIN MIDDLE STYLES *************
+***********************************************/
+#main {
+	position:relative;
+	margin-top:10px;
+	clear:both;
+}
+#middlecomponant {
+	position:relative;
+	float:left;
+	margin-left:5px;
+}
+#topcenter {
+	position:relative;
+	width:560px;
+	padding-bottom:5px;
+}
+#topcenter_wide {
+	position:relative;
+	width:990px;
+	padding-bottom:5px;
+}
+#bottomcenter {
+	position:relative;
+	width:560px;
+}
+#bottomcenter_wide {
+	position:relative;
+	width:990px;
+}
+/**********************************************
+***************** FORM STYLES *****************
+***********************************************/
+input {
+	font-family:verdana;
+	font-size:13px;
+	border:2px solid #660000;
+}
+#submituser, #submitsearch {
+	margin-top:20px;
+	text-align:center;
+}
+#legend {
+	color:#ffffff;
+	font-size:12px;
+}
+#msgInfo {
+	color:#ff0000;
+	font-family:verdana;
+	text-align:right;
+	font-size:12px;
+}
+.userform_table td, .searchform_table td {
+	padding:2px;
+}
+.userlabels {
+	color:#ffffff;
+	font-family:verdana;
+	font-size:12px;
+}
+.userinputs {
+	color:#ffffff;
+	font-family:verdana;
+	font-size:12px;
+}
+.userinputs input {
+	height:13px;
+	font-size:12px;
+	color:#330000;
+	border:1px solid #660000;
+}
+#formaddress {
+	background-color:#54282A;
+}
+#formaddress td {
+	padding:4px;
+}
+.errormessage {
+	color:#ff0000;
+	font-size:11px;
+}
+.infomessage {
+	color:#ffffcc;
+	font-family:verdana;
+	font-size:13px;
+}
+/**********************************************
+*************** EXTRAS ************************
+**********************************************/
+.displayUser {
+	margin-left:10px;
+	color:#bbbbbb;
+	font-style:italic;
+}
+.miniShoppingCart {
+	margin-left:3px;
+	width:95%;
+}
+.miniShoppingCart td {
+	font-size:9px;
+}
+.miniName {
+	width:65%;
+}
+.miniQuantity {
+	text-align:center;
+	width:10%;
+}
+.miniPrice {
+	text-align:right;
+	width:25%;
+}
+.miniColHeader {
+	font-weight:normal;
+	text-decoration:underline;
+}
+.confirmmessage {
+	color:#ffffff;
+	font-family:verdana;
+	font-size:13px;
+}

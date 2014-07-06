@@ -1,0 +1,120 @@
+<h:form id="prodDetailsForm" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<table id="middledown_table">
+<tr>
+	<td align="center">
+		<div class="rounded_border rounded_external rounded_category"> 
+			<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+		</div>
+		<table id="products_table">
+		<tr>
+			<td align="left">
+				<div id="crumbtrail">
+				  	<f:verbatim>&#62; </f:verbatim>
+				  	<h:link id="linkcrumbmarks" outcome="/pages/marks" value="#{msgs['link.ourmarks']}" />
+				  	<f:verbatim>&#160;&#62; </f:verbatim>
+				  	<h:outputText value="#{navigationBean.activeMark}" styleClass="active_mark" />
+			  	</div>
+			</td>
+		</tr>
+		<tr>
+			<td align="left">
+				<h:panelGrid columns="2" style="float:right;width:40px;" rendered="#{!empty navigationBean.oneMarkProducts}">
+					<h:commandLink action="#{navigationBean.actionSwitchViewMode}" disabled="#{navigationBean.viewMode == 'box'}">
+						<h:graphicImage value="/images/view_box.gif" alt="viewbox" />
+					</h:commandLink>
+					<h:commandLink action="#{navigationBean.actionSwitchViewMode}" disabled="#{navigationBean.viewMode == 'list'}">
+						<h:graphicImage value="/images/view_list.gif" alt="viewlist" />
+					</h:commandLink>
+				</h:panelGrid>
+		  		<h:panelGrid id="prodNews" columns="2" columnClasses="shopitem,shopitem" rendered="#{navigationBean.viewMode == 'box'}">
+			  		<c:forEach var="product" items="#{navigationBean.oneMarkProducts}">
+			  			<h:panelGroup>
+			  			<div class="prod_title">#{product.name}</div>
+						<h:commandLink action="#{navigationBean.actionBrowseProduct}">
+							<h:graphicImage value="/images/products/#{product.type}/#{product.picture}" width="150px" alt="knife" />
+  							<f:param name="objid" value="#{product.id}" />
+  						</h:commandLink>
+						<table class="prod_details">
+							<tr><td colspan="2">#{product.description}</td></tr>
+							<tr><td><h:outputText value="#{msgs['product.handle_']}" /></td><td>#{product.handle}</td></tr>
+							<tr><td><h:outputText value="#{msgs['product.steel_']}" /></td><td>#{product.steel}</td></tr>
+							<tr>
+								<td><h:outputText value="#{msgs['product.price_']}" /></td>
+								<td class="prod_price">
+									<h:outputText value="#{product.price}">
+  										<f:convertNumber currencySymbol="&#8364;" type="currency" groupingUsed="#{false}" />
+  									</h:outputText>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<h:commandLink action="#{userInfoRequestBean.actionAddToCart}">
+										<h:graphicImage value="/images/addtocart.png" alt="addtocart" title="#{msgs['addtobasket']}" />
+										<f:param name="objid" value="#{product.id}" />
+									</h:commandLink>
+									<h:commandLink action="#{navigationBean.actionBrowseProduct}">
+										<h:graphicImage value="/images/info.png" alt="browse product" title="#{msgs['title.browse_product']}" />
+										<f:param name="objid" value="#{product.id}" />
+									</h:commandLink>
+								</td>
+							</tr>
+						</table>
+						</h:panelGroup>
+			  		</c:forEach>
+			  	</h:panelGrid>
+			  	<h:dataTable id="prodNewsList" value="#{navigationBean.oneMarkProducts}" var="product" headerClass="prodtitle_list" 
+			  		columnClasses="prodvalue_list,prodvalue_list,prodvalue_list,prodvalue_list" styleClass="prodlist_table"
+			  		rendered="#{!empty navigationBean.oneMarkProducts &#38;&#38; navigationBean.viewMode == 'list'}">
+		  			<h:column>
+  						<h:commandLink action="#{navigationBean.actionBrowseProduct}">
+							<h:graphicImage value="/images/products/#{product.type}/#{product.picture}" width="50px" alt="knife" />
+ 							<f:param name="objid" value="#{product.id}" />
+ 						</h:commandLink>
+ 					</h:column>
+ 					<h:column>
+ 						<f:facet name="header">
+ 							<h:commandLink value="#{msgs['shopcart.article']}" actionListener="#{navigationBean.listenerSortProductsMark}" disabled="#{navigationBean.sortColumn == 'name'}">
+ 								<f:attribute name="sort" value="name" />
+ 							</h:commandLink>
+ 							<h:graphicImage value="/images/sorted.png" rendered="#{navigationBean.sortColumn == 'name'}" />
+ 						</f:facet>
+		  				#{product.name}
+					</h:column>
+					<h:column>
+ 						<f:facet name="header"><h:outputText value="#{msgs['product.mark']}" /></f:facet>
+		  				#{product.mark}
+					</h:column>
+					<h:column>
+ 						<f:facet name="header">
+ 							<h:commandLink value="#{msgs['product.price']}" actionListener="#{navigationBean.listenerSortProductsMark}" disabled="#{navigationBean.sortColumn == 'price'}">
+ 								<f:attribute name="sort" value="price" />
+ 							</h:commandLink>
+ 							<h:graphicImage value="/images/sorted.png" rendered="#{navigationBean.sortColumn == 'price'}" />
+ 						</f:facet>
+		  				<h:outputText value="#{product.price}">
+ 								<f:convertNumber currencySymbol="&#8364;" type="currency" groupingUsed="#{false}" />
+ 						</h:outputText>
+					</h:column>
+					<h:column>
+						<h:commandLink action="#{userInfoRequestBean.actionAddToCart}">
+							<h:graphicImage value="/images/addtocart.png" alt="addtocart" title="#{msgs['addtobasket']}" />
+							<f:param name="objid" value="#{product.id}" />
+						</h:commandLink>
+						<h:commandLink action="#{navigationBean.actionBrowseProduct}">
+							<h:graphicImage value="/images/info.png" alt="browse product" title="#{msgs['title.browse_product']}" />
+							<f:param name="objid" value="#{product.id}" />
+						</h:commandLink>
+					</h:column>
+			  	</h:dataTable>
+		  	</td>
+		</tr>
+		</table>
+	  	<div class="rounded_border rounded_external rounded_category"> 
+			<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+		</div>
+	</td>
+</tr>
+</table>
+</h:form>

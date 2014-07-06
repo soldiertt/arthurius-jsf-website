@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+      http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+   version="2.0">
+  <!--  Empty for this simple case. Managed bean name automatically
+        derived from bean class name. Bean scope is request by default.
+        Results pages automatically derived from return value of action controller.  
+        
+        From JSF 2.0 tutorial at http://www.coreservlets.com/JSF-Tutorial/jsf2/ -->
+<application>
+ 	<resource-bundle>
+    	<base-name>be.arthurius.web.messages.Messages</base-name>
+        <var>msgs</var>
+    </resource-bundle>
+ 	<locale-config>
+ 		<default-locale>fr</default-locale>
+ 		<supported-locale>nl</supported-locale>
+ 		<supported-locale>en</supported-locale>
+ 	</locale-config>
+</application>
+<navigation-rule>
+  <navigation-case>
+    <from-outcome>categ_preview</from-outcome>
+    <to-view-id>/pages/categ_preview.xhtml</to-view-id>
+  </navigation-case>
+</navigation-rule>
+<navigation-rule>
+  <from-view-id>/register_user.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>userreg_confirm</from-outcome>
+   <to-view-id>/userreg_confirm.xhtml</to-view-id>
+  </navigation-case>
+</navigation-rule>
+
+</faces-config>

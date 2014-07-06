@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title><ui:insert name="page_title"><h:outputText value="#{msgs['title.website']}" /></ui:insert></title>
+<link rel="stylesheet" type="text/css" href="../css/stylesheet.css" /> 
+<ui:insert name="extra_header" />
+</h:head>
+<f:view locale="#{navigationBean.language}">
+<body>
+<div id="content">
+<ui:include src="../parts/header.xhtml" />
+<div id="menu">
+	<div class="rounded_border rounded_external" id="menutop"> 
+		<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+	</div>
+	<ui:insert name="menu_items">
+		<ui:include src="../parts/menu.xhtml" />
+	</ui:insert>
+	<div class="rounded_border rounded_external" id="menubottom"> 
+		<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+	</div>
+</div>
+<div id="main">
+	<div id="middlecomponant">
+		<div id="topcenter_wide">
+			<ui:insert name="middletop_area">
+			<table>
+			<tr>
+				<td>
+					<div class="rounded_border rounded_external"> 
+						<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+					</div>
+					<div class="picture"><h:graphicImage value="/images/banner_02.jpg" alt="banner" /></div>
+					<div class="rounded_border rounded_external"> 
+						<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+					</div>
+				</td>
+			</tr>
+			</table>
+			</ui:insert>
+		</div>
+		<div id="bottomcenter_wide">
+			<ui:insert name="middledown_area">
+			<table id="middledown_table">
+			<tr>
+				<td>
+					<div class="rounded_border rounded_external"> 
+						<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+					</div>
+					<table id="products_table">
+					<tr>
+						<td class="shopitem">
+							<div class="prod_title">Al-mar USMC (Al-Mar)</div>
+							<img src="../images/products/knife1.jpg" width="150px" alt="knife" />
+							<table class="prod_details">
+								<tr><td colspan="2">un vrai bonheur</td></tr>
+								<tr><td>manche : </td><td>carbone</td></tr>
+								<tr><td>acier : </td><td>tremp&#233;</td></tr>
+								<tr><td>prix : </td><td>55,00 &#8364;</td></tr>
+							</table>
+						</td>
+						<td class="shopitem">
+							<div class="prod_title">Al-mar USMC (Al-Mar)</div>
+							<img src="../images/products/knife1.jpg" width="150px" alt="knife" />
+							<table class="prod_details">
+								<tr><td colspan="2">un vrai bonheur, une pure merveille &#224; admirer dans son beau cadre en bois...</td></tr>
+								<tr><td>manche : </td><td>carbone</td></tr>
+								<tr><td>acier : </td><td>tremp&#233;</td></tr>
+								<tr><td>prix : </td><td>55,00 &#8364;</td></tr>
+							</table>
+						</td>
+					</tr>
+					<tr><td colspan="2" class="prod_sep"></td></tr>
+					<tr>
+						<td class="shopitem">
+							<div class="prod_title">Al-mar USMC (Al-Mar)</div>
+							<img src="../images/products/knife1.jpg" width="150px" alt="knife" />
+							<table class="prod_details">
+								<tr><td colspan="2">un vrai bonheur, une pure merveille &#224; admirer dans son beau cadre en bois...</td></tr>
+								<tr><td>manche : </td><td>carbone</td></tr>
+								<tr><td>acier : </td><td>tremp&#233;</td></tr>
+								<tr><td>prix : </td><td>55,00 &#8364;</td></tr>
+							</table>
+						</td>
+						<td class="shopitem">
+							<div class="prod_title">Al-mar USMC (Al-Mar)</div>
+							<img src="../images/products/knife1.jpg" width="150px" alt="knife" />
+							<table class="prod_details">
+								<tr><td colspan="2">un vrai bonheur</td></tr>
+								<tr><td>manche : </td><td>carbone</td></tr>
+								<tr><td>acier : </td><td>tremp&#233;</td></tr>
+								<tr><td>prix : </td><td>55,00 &#8364;</td></tr>
+							</table>
+						</td>
+					</tr>
+					</table>
+					<div class="rounded_border rounded_external"> 
+						<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+					</div>
+				</td>
+			</tr>
+			</table>
+			</ui:insert>
+		</div>
+	</div>
+</div>
+<ui:include src="../parts/footer.xhtml" />
+</div>
+</body>
+</f:view>
+</html>

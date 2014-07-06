@@ -1,0 +1,35 @@
+.f_separator {
+	margin-top:4px;
+	margin-left:15px;
+	margin-right:15px;
+}
+#footer {
+	padding-top:10px;
+	position:relative;
+	clear:both;
+	height:60px;
+	width:1000px;
+}
+#footer a  {
+	color:#ffffff;
+	text-decoration:none;
+	font-family:verdana;
+	font-size:10px;
+	font-weight:bold;
+}
+#footertop b.rdborder b{
+	background-color:#8D2104;
+}
+#footerbottom b.rdborder b{
+	background-color:#4D1300;
+}
+#footeritems {
+	float:right;
+	background:url(../images/back-footer.png) repeat-x;
+	width:1000px;
+}
+#footer span{
+	float:right;
+	vertical-align:middle;
+	line-height:50px;
+}

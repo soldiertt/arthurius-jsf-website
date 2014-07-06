@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:x="http://java.sun.com/jstl/xml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:fn="http://java.sun.com/jstl/functions">
+
+<ui:composition template="template/template.xhtml">
+  <ui:define name="page_title">Arthurius.be - #{navigationBean.mainTitle}</ui:define>
+  <ui:define name="middletop_area">
+  	<ui:include src="parts/main_title.xhtml" />
+  </ui:define>
+  <ui:define name="middledown_area">
+  	<h:form id="myProfileForm">
+  	<h:panelGrid columns="2" columnClasses="userlabels,userinputs" styleClass="userform_table">
+  		<h:outputText value="#{msgs['user.username_']}" />
+  		<h:outputText value="#{userInfoBean.activeUser.userName}" id="userName" />
+  		<h:outputLabel value="#{msgs['user.editpassword_']}" for="editPassword" />
+  		<h:selectBooleanCheckbox value="changepass" id="editPassword" 
+  				valueChangeListener="#{userInfoBean.listenerChangePassword}"
+				onclick="this.form.submit();"
+				immediate="true" />
+		<h:outputLabel value="#{msgs['user.newpassword_']}" for="password" rendered="#{userInfoBean.editPassword}" />	
+  		<h:inputSecret value="#{userInfoBean.activeUser.password}" required="true" id="password" size="40" maxlength="30" rendered="#{userInfoBean.editPassword}">
+  			<f:validateLength minimum="4" />
+  		</h:inputSecret>
+  		<h:panelGroup rendered="#{userInfoBean.editPassword}" />
+  		<h:message for="password" styleClass="errormessage" rendered="#{userInfoBean.editPassword}" />
+  		<h:outputLabel value="#{msgs['user.confirmation_']}" for="password_confirm" rendered="#{userInfoBean.editPassword}" />		
+  		<h:inputSecret value="#{userInfoBean.passwordConfirm}" validator="#{userInfoValidation.validatePasswordConfirm}" 
+  			required="true" id="password_confirm" size="40" maxlength="30" rendered="#{userInfoBean.editPassword}">
+  			<f:attribute name="passwordId" value="myProfileForm:password" />
+  		</h:inputSecret>
+  		<h:panelGroup rendered="#{userInfoBean.editPassword}" />
+  		<h:message for="password_confirm" styleClass="errormessage" rendered="#{userInfoBean.editPassword}" />
+  		<h:outputLabel value="#{msgs['user.firstname_']}" for="firstName" />
+  		<h:inputText value="#{userInfoBean.activeUser.firstName}" validator="#{userInfoValidation.validateOnlyLetters}" required="true" id="firstName" size="40" maxlength="30" >
+  			<f:validateLength minimum="2" />
+  		</h:inputText>
+  		<label />
+  		<h:message for="firstName" styleClass="errormessage" />
+  		<h:outputLabel value="#{msgs['user.lastname_']}" for="lastName" />
+  		<h:inputText value="#{userInfoBean.activeUser.lastName}" validator="#{userInfoValidation.validateOnlyLetters}" required="true" id="lastName" size="40" maxlength="30" >
+  			<f:validateLength minimum="2" />
+  		</h:inputText>
+  		<label />
+  		<h:message for="lastName" styleClass="errormessage" />
+  		<h:outputLabel value="#{msgs['user.address_']}" for="addrStreet" />
+  		<h:panelGroup>
+  			<table id="formaddress">
+  				<tr><td>
+  				<h:outputLabel value="#{msgs['user.street_']}" for="addrStreet" />
+	  			<h:inputText value="#{userInfoBean.activeUser.addrStreet}" required="true" id="addrStreet" size="40" maxlength="50" >
+	  				<f:validateLength minimum="3" />
+	  			</h:inputText>
+	  			<br /><h:message for="addrStreet" styleClass="errormessage" />
+	  			</td></tr>
+	  			<tr><td>
+	  			<h:outputLabel value="#{msgs['user.streetnum_']}" for="addrStreetNum" />
+	  			<h:inputText value="#{userInfoBean.activeUser.addrStreetNum}" id="addrStreetNum" size="4" maxlength="5" />
+	  			<h:outputLabel value="#{msgs['user.postbox_']}" for="addrPostBox" />
+	  			<h:inputText value="#{userInfoBean.activeUser.addrPostBox}" id="addrPostBox" size="3" maxlength="10" />
+	  			<br /><h:message for="addrStreetNum" styleClass="errormessage" /><h:message for="addrPostBox" styleClass="errormessage" />
+	  			</td></tr>
+	  			<tr><td>
+	  			<h:outputLabel value="#{msgs['user.postcode_']}" for="addrPostCode" />
+	  			<h:inputText value="#{userInfoBean.activeUser.addrPostCode}" required="true" id="addrPostCode" size="5" maxlength="6">
+	  				<f:validateLength minimum="4" />
+	  			</h:inputText>
+	  			<br /><h:message for="addrPostCode" styleClass="errormessage" />
+	  			</td></tr>
+	  			<tr><td>
+	  			<h:outputLabel value="#{msgs['user.city_']}" for="addrCity" />
+	  			<h:inputText value="#{userInfoBean.activeUser.addrCity}" validator="#{userInfoValidation.validateOnlyLetters}" required="true" id="addrCity" size="25" maxlength="50" >
+	  				<f:validateLength minimum="2" />
+	  			</h:inputText>
+	  			<br /><h:message for="addrCity" styleClass="errormessage" />
+	  			</td></tr>
+	  		</table>
+  		</h:panelGroup>
+  		<h:outputLabel value="#{msgs['user.country_']}" for="addrCountry" />
+  		<h:inputText value="#{userInfoBean.activeUser.addrCountry}" validator="#{userInfoValidation.validateOnlyLetters}" required="true" id="addrCountry" size="40" maxlength="50">
+  			<f:validateLength minimum="4" />
+  		</h:inputText>
+  		<label />
+  		<h:message for="addrCountry" styleClass="errormessage" />
+  		<h:outputText value="#{msgs['user.email_']}" />
+  		<h:outputText value="#{userInfoBean.activeUser.email}" />
+  		<h:outputLabel value="#{msgs['user.phone_']}" for="phoneNumber" />
+  		<h:inputText value="#{userInfoBean.activeUser.phoneNumber}" id="phoneNumber" maxlength="30" />
+  		<label />
+  		<h:message for="phoneNumber" />
+  	</h:panelGrid>
+  	<div id="submituser"><h:commandButton action="#{userInfoRequestBean.actionUpdateUser}" value="#{msgs['page.user_myprofile.submit']}" /></div>
+  	<div id="legend"><h:outputText value="#{msgs['user.requiredfields']}" /></div>
+  	<div id="msgInfo"><h:outputText value="#{userInfoRequestBean.msgInfo}" id="msgInfo" /></div>
+  	</h:form>
+  </ui:define>
+</ui:composition>
+    
+</html>

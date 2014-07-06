@@ -1,0 +1,130 @@
+
+/* CATEGORIES */
+#categories {
+	position:relative;
+	background-color:#4b1917;
+	width:95%;
+}
+#categories b.rdborder b{
+	background-color:#4b1917;
+}
+/* CATEGORIES TITLE_UP */
+#cat_title_up {
+	background-color:#6B0B0F;
+	line-height:10px;
+}
+#cat_title_up b.rdborder b{
+	background-color:#6B0B0F;
+}
+/* CATEGORIES TITLE_DOWN */
+#cat_title_down {
+	background-color:#320608;
+	line-height:10px;
+}
+#cat_title_down b.rdborder b{
+	background-color:#320608;
+}
+
+/* INFORMATION */
+#information {
+	position:relative;
+	background-color:#8F6241;
+	width:95%;
+}
+#information b.rdborder b{
+	background-color:#8F6241;
+}
+/* INFORMATION TITLE_UP */
+#info_title_up {
+	background-color:#7F421D;
+	line-height:10px;
+}
+#info_title_up b.rdborder b{
+	background-color:#7F421D;
+}
+/* INFORMATION TITLE_DOWN */
+#info_title_down {
+	background-color:#351809;
+	line-height:10px;
+}
+#info_title_down b.rdborder b{
+	background-color:#351809;
+}
+
+/* BESTSELLERS */
+#bestsellers {
+	position:relative;
+	background-color:#637056;
+	width:95%;
+}
+#bestsellers b.rdborder b{
+	background-color:#637056;
+}
+/* BESTSELLERS TITLE_UP */
+#best_title_up {
+	background-color:#4F6343;
+	line-height:10px;
+}
+#best_title_up b.rdborder b{
+	background-color:#4F6343;
+}
+/* BESTSELLERS TITLE_DOWN */
+#best_title_down {
+	background-color:#20291B;
+	line-height:10px;
+}
+#best_title_down b.rdborder b{
+	background-color:#20291B;
+}
+
+/* SPECIALS */
+#specials {
+	position:relative;
+	background-color:#9C9D84;
+	width:95%;
+}
+#specials b.rdborder b{
+	background-color:#9C9D84;
+}
+/* SPECIALS TITLE_UP */
+#special_title_up {
+	background-color:#5B5B46;
+	line-height:10px;
+}
+#special_title_up b.rdborder b{
+	background-color:#5B5B46;
+}
+/* SPECIALS TITLE_DOWN */
+#special_title_down {
+	background-color:#292920;
+	line-height:10px;
+}
+#special_title_down b.rdborder b{
+	background-color:#292920;
+}
+
+/* WHATSNEW */
+#whatsnew {
+	position:relative;
+	background-color:#9F9782;
+	width:95%;
+}
+#whatsnew b.rdborder b{
+	background-color:#9F9782;
+}
+/* WHATSNEW TITLE_UP */
+#whatsnew_title_up {
+	background-color:#68543E;
+	line-height:10px;
+}
+#whatsnew_title_up b.rdborder b{
+	background-color:#68543E;
+}
+/* WHATSNEW TITLE_DOWN */
+#whatsnew_title_down {
+	background-color:#2E261C;
+	line-height:10px;
+}
+#whatsnew_title_down b.rdborder b{
+	background-color:#2E261C;
+}

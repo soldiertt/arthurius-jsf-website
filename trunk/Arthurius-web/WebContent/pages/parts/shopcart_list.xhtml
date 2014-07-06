@@ -1,0 +1,25 @@
+<h:form id="shopCartForm" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:dataTable value="#{userInfoBean.shoppingCart}" var="orderLine" styleClass="miniShoppingCart" 
+	columnClasses="miniName,miniQuantity,miniPrice" headerClass="miniColHeader" 
+	rendered="#{!empty userInfoBean.shoppingCart}">
+	<h:column>
+		<f:facet name="header">
+			<h:panelGrid style="text-align:left"><h:outputText value="#{msgs['shopcart.article']}" /></h:panelGrid>
+		</f:facet>
+		#{orderLine.product.name}
+	</h:column>
+	<h:column>
+		<f:facet name="header"><h:outputText value="#{msgs['shopcart.qty']}" /></f:facet>
+		#{orderLine.quantity}
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:panelGrid style="text-align:right"><h:outputText value="#{msgs['shopcart.price']}" /></h:panelGrid>
+		</f:facet>
+		#{orderLine.product.price * orderLine.quantity} &#8364;
+	</h:column>
+</h:dataTable>
+</h:form>

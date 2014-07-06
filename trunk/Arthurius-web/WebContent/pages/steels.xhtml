@@ -1,0 +1,656 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:x="http://java.sun.com/jstl/xml"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:fn="http://java.sun.com/jstl/functions">
+
+<ui:composition template="/pages/template/template_wide.xhtml">
+  <ui:define name="page_title"><h:outputText value="#{msgs['title.website']}" /> - #{navigationBean.mainTitle}</ui:define>
+  <ui:define name="extra_header">
+  	<link rel="stylesheet" type="text/css" href="${request.contextPath}/css/local_steels.css" />
+  </ui:define>
+  <ui:define name="middletop_area">
+  	<ui:include src="/pages/parts/main_title_wide.xhtml" />
+  </ui:define>
+  <ui:define name="middledown_area">
+  	 <div class="aciertitre"><h:outputText value="#{msgs['page.steels.stainless']}" /></div>
+  	 <table class="aciertable"> 
+      <tr> 
+        <td width="137" class="composition">Steel</td> 
+        <td width="41" class="composition">Carbon</td> 
+        <td width="87" class="composition">Manganese</td> 
+        <td width="87" class="composition">Chromium</td> 
+        <td width="51" class="composition">Nickel</td> 
+        <td width="75" class="composition">Vanadium</td> 
+        <td width="95" class="composition">Molybdenum</td> 
+        <td width="48" class="composition">Cobalt</td> 
+        <td width="63" class="composition">Nitrogen</td> 
+        <td width="51" class="composition">Silicon<br />(silicium)</td> 
+        <td width="54" class="composition">HRC</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">H1</td> 
+        <td>0.15</td> 
+        <td>2.00</td> 
+        <td>14-16</td> 
+        <td>0.6-0.8</td> 
+        <td>-</td> 
+        <td>0.5-1.5</td> 
+        <td>-</td> 
+        <td>0.1</td> 
+        <td>3.0-4.5</td> 
+        <td>58-68</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">aisi 420 = 1,4034</td>
+        <td>0.30-0.4</td> 
+        <td>1.0</td> 
+        <td>12.14</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>1.0</td> 
+        <td>53-57</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">420HC</td> 
+        <td>0.4-0.5</td> 
+        <td>0,4</td> 
+        <td>12.14</td> 
+        <td></td> 
+        <td>0.30</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>0.6</td> 
+        <td>55-58</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">420 j2</td> 
+        <td>0.15-0.20</td> 
+        <td>1.0</td> 
+        <td>12.14</td> 
+        <td></td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>0.6</td> 
+        <td>53-56</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">Inox</td> 
+        <td>0.52</td> 
+        <td>0.45</td> 
+        <td>15</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>0.5</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>0.6</td> 
+        <td>56</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">12c27mod</td> 
+        <td>0.52</td> 
+        <td>0.4</td> 
+        <td>14.5</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>57-58</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">12c27</td> 
+        <td>0.60</td> 
+        <td>0.4</td> 
+        <td>13.5</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>58-60</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">13c26</td> 
+        <td>0.68</td> 
+        <td>0.65</td> 
+        <td>12.8</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>0.4</td> 
+        <td>58-60</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">8Crc13Mov</td>
+        <td>0.8</td> 
+        <td>0.4</td> 
+        <td>13.00</td> 
+        <td>0.20</td> 
+        <td>0.10</td> 
+        <td>0.15</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>0.5</td> 
+        <td>60-61</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">14c4crMoV</td> 
+        <td>1.05</td> 
+        <td>0.5</td> 
+        <td>14.00</td> 
+        <td>0.20</td> 
+        <td>0.10</td> 
+        <td>4.00</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>60-62</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">440a - 1.4110 </td> 
+        <td>0.50-0.75</td> 
+        <td>1.0</td> 
+        <td>14-18</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>0.75</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>56-57</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">440b - 1.4112 </td> 
+        <td>0.75-0.95</td> 
+        <td>1.0</td> 
+        <td>16-18</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>0.75</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>56-60</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">440c -1.4125 </td> 
+        <td>0.95-1.2</td> 
+        <td>1.0</td> 
+        <td>16-18</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>0.75</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>58-59</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">N690 Co </td> 
+        <td>1,07</td> 
+        <td>0.4</td> 
+        <td>17</td> 
+        <td>-</td> 
+        <td>0.10</td> 
+        <td>1.10</td> 
+        <td>1.50</td> 
+        <td>-</td> 
+        <td>0.40</td> 
+        <td>58-60</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">AUS 4 A </td> 
+        <td>0.40-0.45</td> 
+        <td>1.0</td> 
+        <td>13.0-14.5</td> 
+        <td>0.49</td> 
+        <td>0.10-0.26</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>55-56</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">AUS 6 A </td> 
+        <td>0.55-0.65</td> 
+        <td>1.0</td> 
+        <td>13.0-14.5</td> 
+        <td>0.49</td> 
+        <td>0.10-0.26</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>56-58</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">AUS 8 A </td> 
+        <td>0.70-0.75</td> 
+        <td>0.5</td> 
+        <td>13.0-14.5</td> 
+        <td>0.49</td> 
+        <td>0.10-0.26</td> 
+        <td>0.1-0.3</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>58-60</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">AUS 10 </td> 
+        <td>0,95-1,10</td> 
+        <td>0.5</td> 
+        <td>13.0-14.5</td> 
+        <td>0.49</td> 
+        <td>0.10-0.27</td> 
+        <td>0.1-0.3</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>60-62</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">154 CM </td> 
+        <td>1.05</td> 
+        <td>0.5</td> 
+        <td>14.0</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>4.0</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>0.3</td> 
+        <td>55-62</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">BG 42</td> 
+        <td>1.15</td> 
+        <td>0.5</td> 
+        <td>14.5</td> 
+        <td>-</td> 
+        <td>1.2</td> 
+        <td>4.0</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>0.3</td> 
+        <td>55-62</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">VG 10 </td> 
+        <td>0.95-1.05</td> 
+        <td>0.5</td> 
+        <td>14.5-15.5</td> 
+        <td>-</td> 
+        <td>0.1-0.3</td> 
+        <td>0.9-1.2</td> 
+        <td>1.5</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>59-62</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">SGPS</td> 
+        <td>1.40</td> 
+        <td>0.40</td> 
+        <td>15.0</td> 
+        <td>-</td> 
+        <td>2.0</td> 
+        <td>2.8</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>0.5</td> 
+        <td>62</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">S 30 V </td> 
+        <td>1.45</td> 
+        <td>-</td> 
+        <td>14.0</td> 
+        <td>-</td> 
+        <td>4.0</td> 
+        <td>2.0</td> 
+        <td>-</td> 
+        <td>0.11</td> 
+        <td>-</td> 
+        <td>55-62</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">S90 V </td> 
+        <td>2.3</td> 
+        <td>-</td> 
+        <td>14.0</td> 
+        <td>-</td> 
+        <td>9.0</td> 
+        <td>1.0</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>58-62</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">zdp 189 </td> 
+        <td>3.0</td> 
+        <td>-</td> 
+        <td>20.0</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>65-68</td> 
+      </tr> 
+      <tr> 
+        <td class="acier"><p>1.4116</p>
+        </td> 
+        <td>0,45-0,50</td> 
+        <td>1.0</td> 
+        <td>14.50-15.80</td> 
+        <td>-</td> 
+        <td>0.15</td> 
+        <td>0.5</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>57</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">Ats 34 </td> 
+        <td>1.05</td> 
+        <td>0.5</td> 
+        <td>14.00</td> 
+        <td>-</td> 
+        <td>0.60</td> 
+        <td>3.55</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>0.25</td> 
+        <td>58-61</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">crowry-X</td> 
+        <td>3.00</td> 
+        <td>-</td> 
+        <td>20.00</td> 
+        <td>-</td> 
+        <td>0.30</td> 
+        <td>1.00</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>60-66</td> 
+      </tr> 
+    </table> 
+    <div class="aciertitre"><h:outputText value="#{msgs['page.steels.tools']}" /></div>
+    <table class="aciertable"> 
+      <tr> 
+        <td width="95" class="composition">Steel</td> 
+        <td width="44" class="composition">Carbon</td> 
+        <td width="85" class="composition">Manganese</td> 
+        <td width="76" class="composition">Chromium</td> 
+        <td width="58" class="composition">Nickel</td> 
+        <td width="73" class="composition">Vanadium</td> 
+        <td width="93" class="composition">Molybdenum</td> 
+        <td width="68" class="composition">Tungsten</td> 
+        <td width="46" class="composition">Cobalt</td> 
+        <td width="62" class="composition">Nitrogen</td> 
+        <td width="54" class="composition">HRC</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">L6</td> 
+        <td>0.65-0.75</td> 
+        <td>0.25-0.80</td> 
+        <td>0.6-1.2</td> 
+        <td>1.25-2.0</td> 
+        <td>0.2-0.3</td> 
+        <td>0.5</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>58-66</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">O1 </td> 
+        <td>0.85-1.0</td> 
+        <td>1.0-1.4</td> 
+        <td>0.4-0.6</td> 
+        <td>0.30</td> 
+        <td>0.30</td> 
+        <td>-</td> 
+        <td>0.5</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>55-64</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">O2 = 90mcv8 </td> 
+        <td>0.90</td> 
+        <td>2.0</td> 
+        <td>0.4-0.5</td> 
+        <td>0.30</td> 
+        <td>0.10</td> 
+        <td>-</td> 
+        <td>0.5</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>55-64</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">A 2 </td> 
+        <td>0.95-1.05</td> 
+        <td>1.0</td> 
+        <td>4.75-5.50</td> 
+        <td>0.30</td> 
+        <td>0.15-0.50</td> 
+        <td>0.9-1.4</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>58-60</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">D 2 = Z160dv12 </td> 
+        <td>1.4-1.6</td> 
+        <td>0.60</td> 
+        <td>11.0-13.0</td> 
+        <td>0.30</td> 
+        <td>1.10</td> 
+        <td>0.70-1.20</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>58-62</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">M-2</td>
+        <td>0.95-1.05</td> 
+        <td>0.15-0.4</td> 
+        <td>3.75-4.5</td> 
+        <td>0.30</td> 
+        <td>2.25-2.75</td> 
+        <td>4.75-6.50</td> 
+        <td>5.00-6.75</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>62-66</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">infi</td> 
+        <td>0.5</td> 
+        <td>-</td> 
+        <td>8.5</td> 
+        <td>0.74</td> 
+        <td>0.36</td> 
+        <td>1.3</td> 
+        <td>-</td> 
+        <td>0.95</td> 
+        <td>0.11</td> 
+        <td>58-60</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">cpm 3 V </td> 
+        <td>0.80</td> 
+        <td>-</td> 
+        <td>7.5</td> 
+        <td>-</td> 
+        <td>2.75</td> 
+        <td>1.30</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>58-62</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">cpm 10 V </td> 
+        <td>2.45</td> 
+        <td>0.5</td> 
+        <td>5.25</td> 
+        <td>-</td> 
+        <td>9.75</td> 
+        <td>1.30</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>58-64</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">cpm 15v </td> 
+        <td>3.4</td> 
+        <td>0.5</td> 
+        <td>5.25</td> 
+        <td>-</td> 
+        <td>14.5</td> 
+        <td>1.3</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>58-65</td> 
+      </tr> 
+    </table> 
+    <div class="aciertitre"><h:outputText value="#{msgs['page.steels.notstainless']}" /></div>
+    <table class="aciertable"> 
+      <tr> 
+        <td height="20" class="composition">Steel</td> 
+        <td class="composition">Carbon</td> 
+        <td class="composition">Manganese</td> 
+        <td class="composition">Chromium</td> 
+        <td class="composition">Nickel</td> 
+        <td class="composition">Vanadium</td> 
+        <td class="composition">Copper</td> 
+        <td class="composition">Silicon</td> 
+        <td class="composition">HRC</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">1095= xc100 </td> 
+        <td>0.9-1.03</td> 
+        <td>0.3-0.5</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>0,25</td> 
+        <td>45-62</td> 
+      </tr> 
+      <tr>
+        <td class="acier">1078-xc75</td> 
+        <td>0.75</td> 
+        <td>0.3-0.5</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>0,25</td> 
+        <td>45-62</td> 
+      </tr> 
+      <tr>
+        <td class="acier">1045-xc45</td> 
+        <td>0.48</td> 
+        <td>0.3-0.5</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>0,25</td> 
+        <td>45-60</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">xc130</td> 
+        <td>1.30</td> 
+        <td>0.55</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>0,25</td> 
+        <td>45-66</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">52100</td> 
+        <td>0.98-1.10</td> 
+        <td>0.25-0.45</td> 
+        <td>1.3-1.6</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>-</td> 
+        <td>58-60</td> 
+      </tr> 
+      <tr> 
+        <td class="acier">50100-b = carbone V </td> 
+        <td>0.93</td> 
+        <td>0.43</td> 
+        <td>0.60</td> 
+        <td>0.03</td> 
+        <td>0.21</td> 
+        <td>0.16</td> 
+        <td>0.24</td> 
+        <td>58-66</td> 
+      </tr> 
+    </table> 
+    <div class="aciertexte">La d&#233;nomination des aciers est variable en fonction des pays et des normes utilis&#233;es comme r&#233;f&#233;rence, 
+          un acier similaire peut donc avoir des appellations diff&#233;rentes selon le pays. Encore faut'il trouver
+          le m&#234;me acier car la composition chimique  varie un peu en fonction de l'usine (haut-fourneaux).</div> 
+      
+    <table class="aciertabexplain"> 
+      <tr> 
+        <th width="425">Exemple de normes courantes</th> 
+        <th width="382">Exemple d'appellation pour 1 type d'acier</th> 
+      </tr> 
+      <tr> 
+        <td>Am&#233;rique = normes AISI</td> 
+        <td><strong> = 440 C </strong></td> 
+      </tr> 
+      <tr> 
+        <td>France = normes AFNOR</td> 
+        <td><strong> = Z100CDV18</strong></td> 
+      </tr> 
+      <tr> 
+        <td>Europe = normes EN 10027</td> 
+        <td><strong> = X105CRMo17</strong></td> 
+      </tr> 
+      <tr> 
+        <td>Europe existe aussi une norme num&#233;rique = ancienement german standard</td> 
+        <td><strong> = 1.4125</strong></td> 
+      </tr> 
+	</table>
+  </ui:define>
+</ui:composition>
+</html>

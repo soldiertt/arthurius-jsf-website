@@ -1,0 +1,47 @@
+<div id="header" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+	<div id="logo"><h:graphicImage id="logopic" value="/images/eurolames.gif" alt="logo" /></div>
+	<div id="country">
+		<h:form id="languageForm">
+		 	<h:commandLink id="langFrCmd" action="#{navigationBean.actionSwitchLanguage}" rendered="#{navigationBean.language != 'fr'}" class="languageFlag">
+				<h:graphicImage id="flagfr" value="/images/flag_fr.png" alt="french" title="Fran&#231;ais" style="border:0px;" />
+				<f:param name="language" value="fr" />
+			</h:commandLink>
+			<h:commandLink id="langNlCmd" action="#{navigationBean.actionSwitchLanguage}" rendered="#{navigationBean.language != 'nl'}" class="languageFlag">
+				<h:graphicImage id="flagnl" value="/images/flag_nl.png" alt="dutch" title="Nederlands" style="border:0px;" />
+				<f:param name="language" value="nl" />
+			</h:commandLink>
+			<h:commandLink id="langEnCmd" action="#{navigationBean.actionSwitchLanguage}" rendered="#{navigationBean.language != 'en'}" class="languageFlag">
+				<h:graphicImage id="flagen" value="/images/flag_en.png" alt="english" title="English" style="border:0px;" />
+				<f:param name="language" value="en" />
+			</h:commandLink>
+		</h:form>
+	</div>
+	<div class="separator">
+		<h:graphicImage value="/images/part.gif" alt="separator" />&#160;
+	</div>
+	<div id="searchbox">
+		<h:form id="searchform_fulltext">
+			<div>
+			<label for="searchbox" class="headerlabel"><h:outputText value="#{msgs['title.search']}:&#160;" /></label>
+			<h:inputText id="searchbox" class="inputbanner" value="#{productSearchBean.searchTerms}" />
+			<h:commandButton class="cmdbanner" id="searchbox_go" action="#{productSearchBean.actionFullTextSearch}" value="Go" />
+			</div>
+		</h:form>
+	</div>
+	<div class="separator">
+		<h:graphicImage value="/images/part.gif" alt="separator" />&#160;
+	</div>
+	<div id="manufact">
+		<h:form id="searchform_marks">
+			<div>
+			<label for="manufact" class="headerlabel"><h:outputText value="#{msgs['title.marks']}:&#160;" /></label>
+			<h:selectOneMenu class="selectbanner" value="#{navigationBean.activeMark}" id="manufact" onchange="document.getElementById('searchform_marks:searchmark_go').click();">
+  				<f:selectItems value="#{productSearchBean.allMarks}" />
+  			</h:selectOneMenu>
+  			<h:commandButton class="cmdbanner_hidden" id="searchmark_go" action="#{navigationBean.actionBrowseMarkFromBanner}" value="Go" />
+			</div>
+		</h:form>
+	</div>
+</div>

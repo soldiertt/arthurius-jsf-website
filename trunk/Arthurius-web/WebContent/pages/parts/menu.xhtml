@@ -1,0 +1,16 @@
+<h:form id="menuForm" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<div id="menuitems" >
+	<span>&#160; &#160; &#160; </span>	
+	<span><h:link id="linkhome" outcome="/pages/homepage" value="#{msgs['link.homepage']}" /></span>
+	<span class="m_separator"><h:graphicImage value="/images/m_sep.gif" alt="separator" /></span>
+	<span><h:link id="linkmarks" outcome="/pages/marks" value="#{msgs['link.ourmarks']}" /></span>
+	<span class="m_separator"><h:graphicImage value="/images/m_sep.gif" alt="separator" /></span>
+	<span><h:link id="linksearch" outcome="/pages/search" value="#{msgs['link.search']}" /></span>
+	<span class="m_separator"><h:graphicImage value="/images/m_sep.gif" alt="separator" /></span>
+	<span><h:link id="linkcontact" outcome="/pages/contact" value="#{msgs['link.contact']}" /></span>
+	<span class="m_separator"><h:graphicImage value="/images/m_sep.gif" alt="separator" /></span>
+	<span><h:link id="linkabout" outcome="/pages/about" value="#{msgs['link.about']}" /></span>
+</div>
+</h:form>

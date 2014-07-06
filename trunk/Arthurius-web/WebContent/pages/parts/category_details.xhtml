@@ -1,0 +1,58 @@
+<h:form id="catDetailsForm" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<table id="middletop_table">
+<tr>
+	<td align="center">
+		<div class="rounded_border rounded_external rounded_category"> 
+			<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+		</div>      
+		<table id="subcateg_table">
+		<tr>
+			<td id="activecateg_rowup">
+				<div class="rounded_border rounded_category_title"> 
+					<b class="rdborder"><b class="r1"></b> <b class="r2"></b> <b class="r3"></b> <b class="r4"></b></b> 
+				</div>
+				&#160;
+			</td>
+		</tr>
+		<tr class="box_title fontwhite">
+			<td><h:graphicImage value="/images/star.gif" alt="star" />
+				<h:outputText id="activeCategoryTitleFr" value="#{navigationBean.activeCategory.title}" rendered="#{navigationBean.language=='fr'}" />
+				<h:outputText id="activeCategoryTitleNl" value="#{navigationBean.activeCategory.titleNl}" rendered="#{navigationBean.language=='nl'}" />
+				<h:outputText id="activeCategoryTitleEn" value="#{navigationBean.activeCategory.titleEn}" rendered="#{navigationBean.language=='en'}" />
+			</td>
+		</tr>
+		<tr>
+			<td id="activecateg_rowdown">
+				&#160;
+				<div class="rounded_border rounded_category_title"> 
+					<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="box_listitem">
+				<h:panelGrid columns="3" columnClasses="subcateg_td,subcateg_td,subcateg_td">
+					<c:forEach items="#{navigationBean.subCategories}" var="subCateg">
+						<h:commandLink action="#{navigationBean.actionBrowseCateg}" value="#{subCateg.title}" rendered="#{navigationBean.language=='fr'}">
+							<f:param name="subtype" value="#{subCateg.type}" />
+						</h:commandLink>
+						<h:commandLink action="#{navigationBean.actionBrowseCateg}" value="#{subCateg.titleNl}" rendered="#{navigationBean.language=='nl'}">
+							<f:param name="subtype" value="#{subCateg.type}" />
+						</h:commandLink>
+						<h:commandLink action="#{navigationBean.actionBrowseCateg}" value="#{subCateg.titleEn}" rendered="#{navigationBean.language=='en'}">
+							<f:param name="subtype" value="#{subCateg.type}" />
+						</h:commandLink>
+					</c:forEach>
+				</h:panelGrid>
+			</td>
+		</tr>
+		</table>
+		<div class="rounded_border rounded_external rounded_category"> 
+			<b class="rdborder"><b class="r4"></b> <b class="r3"></b> <b class="r2"></b> <b class="r1"></b></b> 
+		</div>
+	</td>
+</tr>
+</table>		
+</h:form>

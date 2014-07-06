@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/pages/template/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{productBean.id}"/>
+		<f:event type="preRenderView" listener="#{productBean.retrieve}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Product"/>
+
+	<ui:define name="header">
+		Product
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Product
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="productBeanProductRef" value="Ref:"/>
+			<h:outputText id="productBeanProductRef" value="#{productBean.product.ref}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductType" value="Type:"/>
+			<h:outputText id="productBeanProductType" value="#{productBean.product.type}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductMark" value="Marque:"/>
+			<h:outputText id="productBeanProductMark" value="#{productBean.product.mark}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductName" value="Nom:"/>
+			<h:outputText id="productBeanProductName" value="#{productBean.product.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductDesc" value="Description:"/>
+			<h:outputText id="productBeanProductDesc" value="#{productBean.product.description}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductPic" value="Image:"/>
+			<h:outputText id="productBeanProductPic" value="#{productBean.product.picture}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductHandle" value="Manche:"/>
+			<h:outputText id="productBeanProductHandle" value="#{productBean.product.handle}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductSteel" value="Acier:"/>
+			<h:outputText id="productBeanProductSteel" value="#{productBean.product.steel}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductSize" value="Taille:"/>
+			<h:outputText id="productBeanProductSize" value="#{productBean.product.size}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductPromo" value="Promo:"/>
+			<h:outputText id="productBeanProductPromo" value="#{productBean.product.promo}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductPrice" value="Prix:"/>
+			<h:outputText id="productBeanProductPrice" value="#{productBean.product.price}"/>
+			<h:outputText/>
+			<h:outputLabel for="productBeanProductMore" value="Plus d'info:"/>
+			<h:outputText id="productBeanProductMore" value="#{productBean.product.moreinfo}"/>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true"/>
+			<h:link value="Create New" outcome="create"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

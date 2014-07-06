@@ -1,0 +1,52 @@
+.aciertable {
+	text-align:center;
+	background-color:#ffffff;
+	font-family:verdana;
+	font-size:13px;	
+}
+
+.aciertable td {
+	border:1px solid #000000;
+	padding:2px;
+	white-space:nowrap;
+}
+
+.composition {
+	text-align:center;
+	background-color:#cccccc;
+	font-family:verdana;
+}
+.acier {
+     background-color:#999999;
+} 
+.aciertitre {
+     color:#ffffff;
+	 font-family:verdana;
+	 font-size:16px;
+	 margin:10px 0px 10px 0px;
+ } 
+.aciertexte {
+    color:#ffffff;
+	font-family:verdana; 	
+	font-size:12px;
+	margin-top:15px;
+	width:800px;
+}
+.aciertabexplain {
+    background-color:#ffffff;
+    margin-top:15px;
+}
+.aciertabexplain td {
+	border:1px solid #000000;
+	padding:2px;
+	font-family:verdana;
+	font-size:12px;
+	white-space:nowrap;
+} 
+.aciertabexplain th {
+	border:1px solid #000000;
+	padding:2px;
+	font-family:verdana;
+	font-size:12px;
+	background-color:#cccccc;
+}

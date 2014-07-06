@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/pages/template/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value="#{sectionBean.page}"/>
+		<f:event type="preRenderView" listener="#{sectionBean.paginate}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Section entities"/>
+
+	<ui:define name="header">
+		Section
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Section entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<h:panelGroup styleClass="search">
+
+				<h:panelGrid columnClasses="label,component,required" columns="3">
+					<h:outputLabel for="sectionBeanSearchType" value="Type:"/>
+					<h:panelGroup>
+						<h:inputText id="sectionBeanSearchType" maxLength="100" value="#{sectionBean.search.type}"/>
+						<h:message for="sectionBeanSearchType" styleClass="error"/>
+					</h:panelGroup>
+					<h:outputText/>
+					<h:outputLabel for="sectionBeanSearchTitle" value="Title:"/>
+					<h:panelGroup>
+						<h:inputText id="sectionBeanSearchTitle" maxLength="100" value="#{sectionBean.search.title}"/>
+						<h:message for="sectionBeanSearchTitle" styleClass="error"/>
+					</h:panelGroup>
+					<h:outputText/>
+					<h:outputLabel for="sectionBeanSearchTitleNl" value="Title Nl:"/>
+					<h:panelGroup>
+						<h:inputText id="sectionBeanSearchTitleNl" maxLength="100" value="#{sectionBean.search.titleNl}"/>
+						<h:message for="sectionBeanSearchTitleNl" styleClass="error"/>
+					</h:panelGroup>
+					<h:outputText/>
+					<h:outputLabel for="sectionBeanSearchTitleEn" value="Title En:"/>
+					<h:panelGroup>
+						<h:inputText id="sectionBeanSearchTitleEn" maxLength="100" value="#{sectionBean.search.titleEn}"/>
+						<h:message for="sectionBeanSearchTitleEn" styleClass="error"/>
+					</h:panelGroup>
+					<h:outputText/>
+					<h:outputLabel for="sectionBeanSearchParent" value="Parent:"/>
+					<h:panelGroup>
+						<h:inputText id="sectionBeanSearchParent" maxLength="100" value="#{sectionBean.search.parent}"/>
+						<h:message for="sectionBeanSearchParent" styleClass="error"/>
+					</h:panelGroup>
+					<h:outputText/>
+				</h:panelGrid>
+				<h:panelGroup styleClass="buttons">
+					<h:commandLink value="Search" action="#{sectionBean.dummy}"/>
+					<h:commandLink value="Create New" action="#{sectionBean.create}"/>
+				</h:panelGroup>
+			</h:panelGroup>
+			
+			<h:dataTable id="sectionBeanPageItems" styleClass="data-table" value="#{sectionBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Type"/>
+					</f:facet>
+					<h:link outcome="/pages/admin/section/view.jsf">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemType" value="#{_item.type}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Parent"/>
+					</f:facet>
+					<h:link outcome="/pages/admin/section/view.jsf">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemParent" value="#{_item.parent}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Title"/>
+					</f:facet>
+					<h:link outcome="/pages/admin/section/view.jsf">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemTitle" value="#{_item.title}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Title Nl"/>
+					</f:facet>
+					<h:link outcome="/pages/admin/section/view.jsf">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemTitleNl" value="#{_item.titleNl}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Title En"/>
+					</f:facet>
+					<h:link outcome="/pages/admin/section/view.jsf">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemTitleEn" value="#{_item.titleEn}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/pages/template/paginator.xhtml">
+				<ui:param name="paginatorBean" value="#{sectionBean}"/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>
